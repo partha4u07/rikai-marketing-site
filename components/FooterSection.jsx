@@ -1,0 +1,48 @@
+const cols = [
+  { title: 'Product', links: ['Platform Capabilities', 'How It Works', 'Ask Rishi', 'Intelligence Layers', 'Changelog'] },
+  { title: 'Solutions', links: ['CX Teams', 'UX Research', 'Product Managers', 'Strategy & Leadership', 'Enterprise'] },
+  { title: 'Resources', links: ['Documentation', 'API Reference', 'Blog', 'Help Centre', 'Contact'] },
+  { title: 'Company', links: ['About', 'Careers', 'Privacy Policy', 'Terms of Service'] },
+];
+
+export default function FooterSection() {
+  return (
+    <footer style={{ background: 'var(--surface)', borderTop: '1px solid var(--border)', padding: '72px 0 40px' }}>
+      <div className="container">
+        <div className="footer-grid" style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 1fr 1fr', gap: 48, marginBottom: 64 }}>
+          <div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 16 }}>
+              <img src="/uploads/logo_upload-1776774656314.png" alt="Rik AI" style={{ height: 36 }} />
+              <span style={{ fontFamily: 'var(--fh)', fontWeight: 700, fontSize: 20 }}>Rik<span className="gt">.ai</span></span>
+            </div>
+            <p style={{ fontSize: 14, color: 'var(--text-3)', lineHeight: 1.8, maxWidth: 240, marginBottom: 8 }}>Continuous intelligence for teams that need to understand their customers deeply and act on it decisively.</p>
+            <p style={{ fontSize: 12, color: 'rgba(167,139,250,0.4)', marginBottom: 24 }}>The new verse of market intelligence.</p>
+            <div style={{ display: 'flex', gap: 10 }}>
+              {['𝕏', 'in', '◈'].map(s => (
+                <a key={s} href="#" style={{ width: 34, height: 34, borderRadius: 8, border: '1px solid var(--border)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 12, color: 'var(--text-3)', transition: 'all 0.2s' }}
+                  onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(124,58,237,0.4)'; e.currentTarget.style.color = '#c4b5fd'; }}
+                  onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--border)'; e.currentTarget.style.color = 'var(--text-3)'; }}
+                >{s}</a>
+              ))}
+            </div>
+          </div>
+          {cols.map(col => (
+            <div key={col.title}>
+              <div style={{ fontFamily: 'var(--fh)', fontWeight: 700, fontSize: 13, color: 'var(--text-1)', marginBottom: 20 }}>{col.title}</div>
+              {col.links.map(l => (
+                <a key={l} href="#" style={{ display: 'block', fontSize: 13.5, color: 'var(--text-3)', marginBottom: 12, transition: 'color 0.2s' }}
+                  onMouseEnter={e => e.currentTarget.style.color = 'var(--text-1)'}
+                  onMouseLeave={e => e.currentTarget.style.color = 'var(--text-3)'}
+                >{l}</a>
+              ))}
+            </div>
+          ))}
+        </div>
+        <div className="footer-bottom" style={{ borderTop: '1px solid var(--border)', paddingTop: 28, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <span style={{ fontSize: 13, color: 'var(--text-3)' }}>© 2026 Rik AI. All rights reserved.</span>
+          <span style={{ fontSize: 13, color: 'var(--text-3)' }}>Inspired by knowledge. Built for clarity.</span>
+        </div>
+      </div>
+    </footer>
+  );
+}
