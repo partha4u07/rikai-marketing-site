@@ -20,78 +20,167 @@ function formatSlotShort(slot) {
 // ─── Email templates ──────────────────────────────────────────────────────────
 
 function teamEmailHTML({ name, company, email, phone, slots, guests, notes }) {
-  const slotsHTML = slots
-    .map((s, i) => `
-      <tr>
-        <td style="padding:6px 12px 6px 0;color:#a78bfa;font-weight:700;white-space:nowrap;vertical-align:top">#${i + 1}</td>
-        <td style="padding:6px 0;color:#f0f0ff">${formatSlotLong(s)}</td>
-      </tr>`)
-    .join('');
+  const slotsHTML = slots.map((s, i) => `
+    <tr>
+      <td style="padding:10px 16px 10px 0;vertical-align:top;white-space:nowrap">
+        <span style="display:inline-block;width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,#7c3aed,#4f6ef7);color:#fff;font-size:11px;font-weight:800;text-align:center;line-height:24px">${i + 1}</span>
+      </td>
+      <td style="padding:10px 0;color:#1a1a2e;font-size:14px;line-height:1.5">
+        <strong>${formatSlotLong(s)}</strong>
+      </td>
+    </tr>`).join('');
 
-  const guestsLine = guests.length
-    ? `<p style="margin:0 0 8px"><span style="color:#a78bfa;font-weight:600">Guests:</span> ${guests.join(', ')}</p>`
+  const guestsHTML = guests.length
+    ? `<div style="margin-top:24px">
+        <p style="margin:0 0 10px;font-size:11px;font-weight:700;color:#7c3aed;text-transform:uppercase;letter-spacing:.08em">Guest Emails to Include in Invite</p>
+        ${guests.map(g => `<div style="display:inline-block;margin:0 6px 6px 0;padding:4px 12px;background:#f3f0ff;border:1px solid #ddd6fe;border-radius:100px;color:#5b21b6;font-size:13px">${g}</div>`).join('')}
+      </div>`
     : '';
 
-  const notesLine = notes
-    ? `<div style="margin-top:20px;padding:16px;background:#1a1a2e;border-left:3px solid #7c3aed;border-radius:4px"><p style="margin:0 0 6px;color:#a78bfa;font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.06em">Notes from prospect</p><p style="margin:0;color:#d4d4f0;line-height:1.6">${notes}</p></div>`
+  const notesHTML = notes
+    ? `<div style="margin-top:24px;padding:16px 20px;background:#fafafa;border-left:4px solid #7c3aed;border-radius:0 8px 8px 0">
+        <p style="margin:0 0 6px;font-size:11px;font-weight:700;color:#7c3aed;text-transform:uppercase;letter-spacing:.08em">Additional Notes from Prospect</p>
+        <p style="margin:0;color:#444;font-size:14px;line-height:1.7">${notes}</p>
+      </div>`
     : '';
 
   return `<!DOCTYPE html>
 <html>
 <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head>
-<body style="margin:0;padding:0;background:#08081a;font-family:'Segoe UI',Arial,sans-serif">
-  <div style="max-width:580px;margin:40px auto;background:#0f0f1e;border:1px solid rgba(124,58,237,0.25);border-radius:16px;overflow:hidden">
-    <div style="background:linear-gradient(135deg,#7c3aed,#4f6ef7);padding:28px 32px">
-      <p style="margin:0 0 4px;color:rgba(255,255,255,0.7);font-size:12px;letter-spacing:.08em;text-transform:uppercase">New Demo Request</p>
-      <h1 style="margin:0;color:#fff;font-size:22px;font-weight:800">${name}</h1>
-      <p style="margin:4px 0 0;color:rgba(255,255,255,0.75);font-size:14px">${company}</p>
+<body style="margin:0;padding:0;background:#f0f0f5;font-family:'Segoe UI',Arial,sans-serif">
+  <div style="max-width:600px;margin:32px auto">
+
+    <!-- Header -->
+    <div style="background:linear-gradient(135deg,#7c3aed,#4f6ef7);border-radius:12px 12px 0 0;padding:24px 32px">
+      <p style="margin:0 0 4px;color:rgba(255,255,255,0.65);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase">⚡ New Demo Request</p>
+      <h1 style="margin:0;color:#fff;font-size:24px;font-weight:800;letter-spacing:-.5px">${name}</h1>
+      <p style="margin:4px 0 0;color:rgba(255,255,255,0.8);font-size:15px">${company}</p>
     </div>
-    <div style="padding:28px 32px">
-      <p style="margin:0 0 8px"><span style="color:#a78bfa;font-weight:600">Email:</span> <a href="mailto:${email}" style="color:#818cf8">${email}</a></p>
-      ${phone ? `<p style="margin:0 0 8px"><span style="color:#a78bfa;font-weight:600">Phone:</span> <span style="color:#f0f0ff">${phone}</span></p>` : ''}
-      ${guestsLine}
 
-      <hr style="border:none;border-top:1px solid rgba(255,255,255,0.07);margin:20px 0">
+    <!-- Body -->
+    <div style="background:#fff;border-radius:0 0 12px 12px;padding:28px 32px;border:1px solid #e8e8f0;border-top:none">
 
-      <p style="margin:0 0 12px;color:#a78bfa;font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.06em">Preferred Slots (in priority order)</p>
+      <!-- Contact details -->
+      <p style="margin:0 0 14px;font-size:11px;font-weight:700;color:#7c3aed;text-transform:uppercase;letter-spacing:.08em">Contact Details</p>
+      <table style="border-collapse:collapse;width:100%;margin-bottom:24px">
+        <tr>
+          <td style="padding:6px 0;color:#888;font-size:13px;width:100px">Email</td>
+          <td style="padding:6px 0"><a href="mailto:${email}" style="color:#4f6ef7;font-size:14px;font-weight:600">${email}</a></td>
+        </tr>
+        <tr>
+          <td style="padding:6px 0;color:#888;font-size:13px">Phone</td>
+          <td style="padding:6px 0;color:#1a1a2e;font-size:14px">${phone || '—'}</td>
+        </tr>
+        <tr>
+          <td style="padding:6px 0;color:#888;font-size:13px">Company</td>
+          <td style="padding:6px 0;color:#1a1a2e;font-size:14px;font-weight:600">${company}</td>
+        </tr>
+      </table>
+
+      <hr style="border:none;border-top:1px solid #f0f0f5;margin:0 0 24px">
+
+      <!-- Slots -->
+      <p style="margin:0 0 10px;font-size:11px;font-weight:700;color:#7c3aed;text-transform:uppercase;letter-spacing:.08em">Preferred Slots — in Priority Order</p>
       <table style="border-collapse:collapse;width:100%">${slotsHTML}</table>
 
-      ${notesLine}
+      ${guestsHTML}
+      ${notesHTML}
 
-      <hr style="border:none;border-top:1px solid rgba(255,255,255,0.07);margin:24px 0">
-      <p style="margin:0;color:rgba(240,240,255,0.35);font-size:12px">Submitted via rikai.tech · Rik AI Demo Booking</p>
+      <hr style="border:none;border-top:1px solid #f0f0f5;margin:28px 0 16px">
+      <p style="margin:0;color:#bbb;font-size:12px;text-align:center">Submitted via rikai.tech · Rik AI Demo Booking System</p>
     </div>
   </div>
 </body>
 </html>`;
 }
 
-function confirmationEmailHTML({ name, slots }) {
-  const slotsHTML = slots
-    .map((s, i) => `<li style="margin-bottom:6px;color:#d4d4f0"><span style="color:#a78bfa;font-weight:700">#${i + 1}</span> ${formatSlotLong(s)}</li>`)
-    .join('');
+function confirmationEmailHTML({ name, slots, guests, notes }) {
+  const slotsHTML = slots.map((s, i) => `
+    <tr>
+      <td style="padding:10px 14px 10px 0;vertical-align:top;white-space:nowrap">
+        <span style="display:inline-block;width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,#7c3aed,#4f6ef7);color:#fff;font-size:10px;font-weight:800;text-align:center;line-height:22px">${i + 1}</span>
+      </td>
+      <td style="padding:10px 0;font-size:14px;color:#2d2d4e;line-height:1.5">
+        ${formatSlotLong(s)}
+      </td>
+    </tr>`).join('');
+
+  const whatToExpect = [
+    { num: '01', title: 'Platform Overview', desc: 'A live walkthrough of Rik AI\'s continuous intelligence engine — from signal capture to actionable insights.' },
+    { num: '02', title: 'Use Case Discussion', desc: 'We\'ll explore how Rik AI fits your team, industry, and customer understanding goals.' },
+    { num: '03', title: 'Live Demo', desc: 'See the platform in action with scenarios tailored to your context and data.' },
+    { num: '04', title: 'Q&A Session', desc: 'Time for all your questions — answered by our product and solutions experts.' },
+  ];
+
+  const expectHTML = whatToExpect.map(item => `
+    <tr>
+      <td style="padding:12px 16px 12px 0;vertical-align:top;color:#c4b5fd;font-size:11px;font-weight:800;font-family:monospace;white-space:nowrap">${item.num}</td>
+      <td style="padding:12px 0;border-bottom:1px solid #f0eeff">
+        <p style="margin:0 0 3px;font-size:14px;font-weight:700;color:#2d2d4e">${item.title}</p>
+        <p style="margin:0;font-size:13px;color:#777;line-height:1.55">${item.desc}</p>
+      </td>
+    </tr>`).join('');
+
+  const guestsHTML = guests?.length
+    ? `<div style="margin-top:6px;padding:14px 18px;background:#fafafa;border-radius:8px;border:1px solid #eee">
+        <p style="margin:0 0 8px;font-size:11px;font-weight:700;color:#7c3aed;text-transform:uppercase;letter-spacing:.07em">Your Guests</p>
+        <p style="margin:0;font-size:13px;color:#555">The following will be included in your calendar invite: <strong>${guests.join(', ')}</strong></p>
+      </div>`
+    : '';
+
+  const notesHTML = notes
+    ? `<div style="margin-top:10px;padding:14px 18px;background:#fafafa;border-radius:8px;border:1px solid #eee">
+        <p style="margin:0 0 6px;font-size:11px;font-weight:700;color:#7c3aed;text-transform:uppercase;letter-spacing:.07em">Your Notes</p>
+        <p style="margin:0;font-size:13px;color:#555;line-height:1.6;font-style:italic">"${notes}"</p>
+        <p style="margin:6px 0 0;font-size:12px;color:#999">We've noted this and will come prepared.</p>
+      </div>`
+    : '';
 
   return `<!DOCTYPE html>
 <html>
 <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head>
 <body style="margin:0;padding:0;background:#f4f4f8;font-family:'Segoe UI',Arial,sans-serif">
-  <div style="max-width:560px;margin:40px auto;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.08)">
-    <div style="background:linear-gradient(135deg,#7c3aed,#4f6ef7);padding:28px 32px;text-align:center">
-      <h1 style="margin:0;color:#fff;font-size:22px;font-weight:800">We've got your request!</h1>
-      <p style="margin:8px 0 0;color:rgba(255,255,255,0.8);font-size:14px">Hi ${name}, your demo slots have been received</p>
-    </div>
-    <div style="padding:28px 32px">
-      <p style="color:#444;line-height:1.7">We've noted your preferred slots and our team will confirm the best available time within <strong>24 hours</strong>. You'll receive a calendar invite once confirmed.</p>
+  <div style="max-width:580px;margin:32px auto">
 
-      <div style="background:#f8f6ff;border-left:4px solid #7c3aed;border-radius:4px;padding:16px 20px;margin:20px 0">
-        <p style="margin:0 0 10px;color:#7c3aed;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.06em">Your Preferred Slots</p>
-        <ol style="margin:0;padding:0 0 0 4px;list-style:none">${slotsHTML}</ol>
+    <!-- Header -->
+    <div style="background:linear-gradient(135deg,#7c3aed,#4f6ef7);border-radius:12px 12px 0 0;padding:32px;text-align:center">
+      <div style="width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,0.2);margin:0 auto 16px;display:flex;align-items:center;justify-content:center;font-size:22px">✓</div>
+      <h1 style="margin:0;color:#fff;font-size:22px;font-weight:800">Your demo is being scheduled</h1>
+      <p style="margin:8px 0 0;color:rgba(255,255,255,0.8);font-size:14px">Hi ${name}, we've received your preferred slots</p>
+    </div>
+
+    <!-- Body -->
+    <div style="background:#fff;padding:28px 32px;border:1px solid #e8e8f0;border-top:none">
+
+      <p style="margin:0 0 24px;color:#444;font-size:15px;line-height:1.7">
+        Thank you for your interest in Rik AI. Our team will review your preferred slots and confirm the best available time within <strong>24 hours</strong>. Once confirmed, you'll receive a calendar invite directly to your inbox.
+      </p>
+
+      <!-- Slots recap -->
+      <div style="background:#faf8ff;border:1px solid #ede9fe;border-radius:10px;padding:18px 20px;margin-bottom:20px">
+        <p style="margin:0 0 12px;font-size:11px;font-weight:700;color:#7c3aed;text-transform:uppercase;letter-spacing:.08em">Your Preferred Slots</p>
+        <table style="border-collapse:collapse;width:100%">${slotsHTML}</table>
       </div>
 
-      <p style="color:#666;font-size:13px;line-height:1.6">In the meantime, feel free to reach out to <a href="mailto:sales@rikai.tech" style="color:#7c3aed">sales@rikai.tech</a> if you have any questions.</p>
+      ${guestsHTML}
+      ${notesHTML}
 
-      <hr style="border:none;border-top:1px solid #eee;margin:24px 0">
-      <p style="margin:0;color:#999;font-size:12px;text-align:center">Rik AI · The new verse of market intelligence</p>
+      <hr style="border:none;border-top:1px solid #f0f0f5;margin:24px 0">
+
+      <!-- What to expect -->
+      <p style="margin:0 0 14px;font-size:11px;font-weight:700;color:#7c3aed;text-transform:uppercase;letter-spacing:.08em">What to Expect in Your Demo</p>
+      <table style="border-collapse:collapse;width:100%">${expectHTML}</table>
+
+      <hr style="border:none;border-top:1px solid #f0f0f5;margin:24px 0">
+
+      <p style="margin:0;color:#666;font-size:13px;line-height:1.7">
+        Questions in the meantime? Reply to this email or reach us at <a href="mailto:sales@rikai.tech" style="color:#7c3aed;font-weight:600">sales@rikai.tech</a>
+      </p>
+    </div>
+
+    <!-- Footer -->
+    <div style="padding:18px 32px;text-align:center">
+      <p style="margin:0;color:#bbb;font-size:12px">Rik AI · The new verse of market intelligence</p>
     </div>
   </div>
 </body>
@@ -206,7 +295,7 @@ export async function POST(request) {
         to: allRecipients,
         replyTo: toAddress,
         subject: `Your Rik AI demo request is confirmed — we'll be in touch shortly`,
-        html: confirmationEmailHTML({ name, slots }),
+        html: confirmationEmailHTML({ name, slots, guests: guests || [], notes }),
       }),
 
       // HubSpot CRM
