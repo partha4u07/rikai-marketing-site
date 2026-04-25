@@ -47,6 +47,8 @@ export default function BookDemoModal({ onClose, initialEmail = '' }) {
   const [guestInput, setGuestInput] = useState('');
   const [guests, setGuests] = useState([]);
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [apiError, setApiError] = useState('');
 
   useEffect(() => {
     const fn = (e) => { if (e.key === 'Escape') onClose(); };
@@ -131,6 +133,25 @@ export default function BookDemoModal({ onClose, initialEmail = '' }) {
     form.name.trim() &&
     form.company.trim() &&
     /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email);
+
+  const handleSubmit = async () => {
+    if (!isFormValid || loading) return;
+    setLoading(true);
+    setApiError('');
+    try {
+      const res = await fetch('/api/book-demo', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...form, slots, guests }),
+      });
+      if (!res.ok) throw new Error('server');
+      setSubmitted(true);
+    } catch {
+      setApiError('Something went wrong. Please try again or email us at sales@rikai.tech');
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const inputStyle = {
     width: '100%', padding: '11px 14px', borderRadius: 10,
@@ -546,24 +567,39 @@ export default function BookDemoModal({ onClose, initialEmail = '' }) {
                 />
               </div>
 
+              {apiError && (
+                <p style={{ fontSize: 13, color: '#fca5a5', background: 'rgba(239,68,68,0.1)', border: '1px solid rgba(239,68,68,0.25)', borderRadius: 8, padding: '10px 14px', marginBottom: 16 }}>
+                  {apiError}
+                </p>
+              )}
+
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <button
                   onClick={() => setStep(1)}
-                  style={{ color: 'var(--text-2)', fontFamily: 'var(--fh)', fontWeight: 500, fontSize: 14, background: 'none', border: '1px solid rgba(255,255,255,0.1)', padding: '11px 18px', borderRadius: 10, cursor: 'pointer' }}
+                  disabled={loading}
+                  style={{ color: 'var(--text-2)', fontFamily: 'var(--fh)', fontWeight: 500, fontSize: 14, background: 'none', border: '1px solid rgba(255,255,255,0.1)', padding: '11px 18px', borderRadius: 10, cursor: loading ? 'not-allowed' : 'pointer', opacity: loading ? 0.5 : 1 }}
                 >← Back</button>
                 <button
-                  onClick={() => isFormValid && setSubmitted(true)}
-                  disabled={!isFormValid}
+                  onClick={handleSubmit}
+                  disabled={!isFormValid || loading}
                   style={{
-                    background: isFormValid ? 'var(--grad)' : 'rgba(255,255,255,0.07)',
-                    color: isFormValid ? '#fff' : 'var(--text-3)',
+                    background: isFormValid && !loading ? 'var(--grad)' : 'rgba(255,255,255,0.07)',
+                    color: isFormValid && !loading ? '#fff' : 'var(--text-3)',
                     fontFamily: 'var(--fh)', fontWeight: 700, fontSize: 15,
                     padding: '12px 30px', borderRadius: 12, border: 'none',
-                    cursor: isFormValid ? 'pointer' : 'not-allowed',
-                    boxShadow: isFormValid ? '0 0 32px rgba(124,58,237,0.4)' : 'none',
-                    transition: 'all 0.2s',
+                    cursor: isFormValid && !loading ? 'pointer' : 'not-allowed',
+                    boxShadow: isFormValid && !loading ? '0 0 32px rgba(124,58,237,0.4)' : 'none',
+                    transition: 'all 0.2s', minWidth: 180,
+                    display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
                   }}
-                >Schedule Event →</button>
+                >
+                  {loading ? (
+                    <>
+                      <span style={{ width: 14, height: 14, border: '2px solid rgba(255,255,255,0.3)', borderTopColor: '#fff', borderRadius: '50%', animation: 'spin 0.7s linear infinite', display: 'inline-block', flexShrink: 0 }} />
+                      Scheduling…
+                    </>
+                  ) : 'Schedule Event →'}
+                </button>
               </div>
             </div>
           </div>
