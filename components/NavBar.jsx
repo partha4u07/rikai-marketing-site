@@ -124,7 +124,7 @@ export default function NavBar({ onBookDemo }) {
           {signInOpen && (
             <div style={{
               position: 'absolute', top: 'calc(100% + 12px)', right: 0,
-              width: 280,
+              width: 310,
               background: '#0d0d20',
               border: '1px solid rgba(124,58,237,0.2)',
               borderRadius: 18,
@@ -150,8 +150,8 @@ export default function NavBar({ onBookDemo }) {
                     rel="noopener noreferrer"
                     onClick={() => setSignInOpen(false)}
                     style={{
-                      display: 'flex', alignItems: 'center', gap: 14,
-                      padding: '12px 12px',
+                      display: 'flex', alignItems: 'flex-start', gap: 14,
+                      padding: '14px 12px',
                       borderRadius: 12,
                       textDecoration: 'none',
                       transition: 'background 0.15s',
@@ -171,19 +171,19 @@ export default function NavBar({ onBookDemo }) {
 
                     {/* Text stack */}
                     <div style={{ flex: 1, minWidth: 0 }}>
-                      <p style={{ margin: '0 0 2px', fontFamily: 'var(--fh)', fontWeight: 700, fontSize: 14, color: 'var(--text-1)', lineHeight: 1 }}>
+                      <p style={{ margin: '0 0 3px', fontFamily: 'var(--fh)', fontWeight: 700, fontSize: 14, color: 'var(--text-1)', lineHeight: 1.3 }}>
                         {portal.label}
                       </p>
-                      <p style={{ margin: '0 0 4px', fontFamily: 'var(--fh)', fontSize: 11, fontWeight: 500, color: '#a78bfa', lineHeight: 1 }}>
+                      <p style={{ margin: '0 0 6px', fontFamily: 'var(--fh)', fontSize: 11, fontWeight: 600, color: '#a78bfa', lineHeight: 1.3, letterSpacing: '0.02em' }}>
                         {portal.sub}
                       </p>
-                      <p style={{ margin: 0, fontFamily: 'var(--fb)', fontSize: 11, color: 'var(--text-3)', lineHeight: 1.5, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                      <p style={{ margin: 0, fontFamily: 'var(--fb)', fontSize: 12, color: 'var(--text-3)', lineHeight: 1.65 }}>
                         {portal.desc}
                       </p>
                     </div>
 
                     {/* Arrow */}
-                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none" style={{ flexShrink: 0, opacity: 0.3 }}>
+                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none" style={{ flexShrink: 0, opacity: 0.3, marginTop: 3 }}>
                       <path d="M2.5 6.5h8M6.5 2.5l4 4-4 4" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                   </a>
