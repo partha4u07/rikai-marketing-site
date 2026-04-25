@@ -1,7 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 
-export default function NavBar() {
+export default function NavBar({ onBookDemo }) {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -57,17 +57,17 @@ export default function NavBar() {
           onMouseEnter={e => e.currentTarget.style.color = '#f0f0ff'}
           onMouseLeave={e => e.currentTarget.style.color = 'rgba(240,240,255,0.68)'}
         >Sign in</a>
-        <a href="#cta" style={{
+        <button onClick={() => onBookDemo()} style={{
           background: 'var(--grad)', color: '#fff',
           fontFamily: 'var(--fh)', fontWeight: 600, fontSize: '14px',
           padding: '10px 22px', borderRadius: '10px',
           boxShadow: '0 0 28px rgba(124,58,237,0.45)',
           transition: 'transform 0.2s, box-shadow 0.2s',
-          display: 'inline-block',
+          border: 'none', cursor: 'pointer',
         }}
           onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-1px)'; e.currentTarget.style.boxShadow = '0 4px 32px rgba(124,58,237,0.6)'; }}
           onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 0 28px rgba(124,58,237,0.45)'; }}
-        >Get Started Free</a>
+        >Get Started Free</button>
       </div>
     </nav>
   );

@@ -15,6 +15,7 @@ import UseCasesSection from '@/components/UseCasesSection';
 import CTASection from '@/components/CTASection';
 import FooterSection from '@/components/FooterSection';
 import TweaksPanel from '@/components/TweaksPanel';
+import BookDemoModal from '@/components/BookDemoModal';
 
 const TWEAK_DEFAULTS = {
   cta: 'demo',
@@ -29,6 +30,13 @@ const TWEAK_DEFAULTS = {
 export default function HomePage() {
   const [tweaks, setTweaks] = useState(TWEAK_DEFAULTS);
   const [tweakOpen, setTweakOpen] = useState(false);
+  const [showBookDemo, setShowBookDemo] = useState(false);
+  const [demoEmail, setDemoEmail] = useState('');
+
+  const openBookDemo = (email = '') => {
+    setDemoEmail(email);
+    setShowBookDemo(true);
+  };
 
   useEffect(() => {
     try {
@@ -57,9 +65,9 @@ export default function HomePage() {
 
   return (
     <>
-      <NavBar />
+      <NavBar onBookDemo={openBookDemo} />
       <main>
-        <HeroSection tweaks={tweaks} />
+        <HeroSection tweaks={tweaks} onBookDemo={openBookDemo} />
         <ProblemSection />
         {tweaks.showShift && <ShiftSection />}
         <CapabilitiesSection />
@@ -69,9 +77,16 @@ export default function HomePage() {
         <ProductPreviewSection />
         {tweaks.showTrust && <TrustSection />}
         <UseCasesSection />
-        <CTASection tweaks={tweaks} />
+        <CTASection tweaks={tweaks} onBookDemo={openBookDemo} />
       </main>
       <FooterSection />
+
+      {showBookDemo && (
+        <BookDemoModal
+          initialEmail={demoEmail}
+          onClose={() => setShowBookDemo(false)}
+        />
+      )}
 
       {/* Tweaks toggle button */}
       <button
