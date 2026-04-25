@@ -4,19 +4,31 @@ import { useState, useEffect, useRef } from 'react';
 const PORTALS = [
   {
     key: 'voice',
-    icon: '🎙',
     label: 'Voice Portal',
-    tag: 'For Participants',
-    desc: 'Join a research study, complete a survey, or share your feedback as a participant.',
+    sub: 'For Survey Respondents',
+    desc: 'Join a research study, complete a survey, or share your feedback.',
     href: 'https://www.rikai.tech',
+    grad: 'linear-gradient(135deg,rgba(124,58,237,0.3),rgba(79,110,247,0.2))',
+    icon: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#c4b5fd" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+        <path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v4M8 23h8"/>
+      </svg>
+    ),
   },
   {
     key: 'customer',
-    icon: '◈',
     label: 'Customer Portal',
-    tag: 'For Teams',
-    desc: 'Access your Rik AI workspace, manage research projects, and view insights.',
+    sub: 'For Teams & Organisations',
+    desc: 'Access your Rik AI workspace, manage projects, and view insights.',
     href: 'https://www.rikai.tech',
+    grad: 'linear-gradient(135deg,rgba(79,110,247,0.3),rgba(124,58,237,0.15))',
+    icon: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#818cf8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/>
+        <rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>
+      </svg>
+    ),
   },
 ];
 
@@ -111,17 +123,25 @@ export default function NavBar({ onBookDemo }) {
           {/* Dropdown */}
           {signInOpen && (
             <div style={{
-              position: 'absolute', top: 'calc(100% + 10px)', right: 0,
-              width: 300,
-              background: 'rgba(15,15,30,0.98)',
-              border: '1px solid rgba(124,58,237,0.25)',
-              borderRadius: 16,
-              boxShadow: '0 24px 64px rgba(0,0,0,0.6), 0 0 40px rgba(124,58,237,0.1)',
+              position: 'absolute', top: 'calc(100% + 12px)', right: 0,
+              width: 280,
+              background: '#0d0d20',
+              border: '1px solid rgba(124,58,237,0.2)',
+              borderRadius: 18,
+              boxShadow: '0 32px 80px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.04)',
               backdropFilter: 'blur(24px)',
               overflow: 'hidden',
               zIndex: 300,
             }}>
-              <div style={{ padding: '10px 10px 10px' }}>
+              {/* Header hint */}
+              <div style={{ padding: '12px 16px 8px', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+                <p style={{ margin: 0, fontSize: 11, color: 'var(--text-3)', fontFamily: 'var(--fh)', fontWeight: 600, letterSpacing: '0.06em', textTransform: 'uppercase' }}>
+                  Sign in to
+                </p>
+              </div>
+
+              {/* Portal cards */}
+              <div style={{ padding: '8px' }}>
                 {PORTALS.map((portal, i) => (
                   <a
                     key={portal.key}
@@ -130,56 +150,51 @@ export default function NavBar({ onBookDemo }) {
                     rel="noopener noreferrer"
                     onClick={() => setSignInOpen(false)}
                     style={{
-                      display: 'flex', alignItems: 'flex-start', gap: 14,
-                      padding: '14px 14px',
+                      display: 'flex', alignItems: 'center', gap: 14,
+                      padding: '12px 12px',
                       borderRadius: 12,
                       textDecoration: 'none',
                       transition: 'background 0.15s',
                       background: 'transparent',
-                      marginBottom: i < PORTALS.length - 1 ? 2 : 0,
+                      marginBottom: i < PORTALS.length - 1 ? 4 : 0,
                     }}
-                    onMouseEnter={e => e.currentTarget.style.background = 'rgba(124,58,237,0.12)'}
+                    onMouseEnter={e => e.currentTarget.style.background = 'rgba(124,58,237,0.1)'}
                     onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
                   >
-                    {/* Icon */}
+                    {/* Icon box */}
                     <div style={{
-                      width: 38, height: 38, borderRadius: 10, flexShrink: 0,
-                      background: 'rgba(124,58,237,0.15)',
-                      border: '1px solid rgba(124,58,237,0.25)',
+                      width: 42, height: 42, borderRadius: 11, flexShrink: 0,
+                      background: portal.grad,
+                      border: '1px solid rgba(255,255,255,0.08)',
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
-                      fontSize: 16,
                     }}>{portal.icon}</div>
 
-                    {/* Text */}
+                    {/* Text stack */}
                     <div style={{ flex: 1, minWidth: 0 }}>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 3 }}>
-                        <span style={{ fontFamily: 'var(--fh)', fontWeight: 700, fontSize: 14, color: 'var(--text-1)' }}>
-                          {portal.label}
-                        </span>
-                        <span style={{
-                          fontSize: 9, fontWeight: 700, color: '#a78bfa',
-                          background: 'rgba(124,58,237,0.18)', border: '1px solid rgba(124,58,237,0.3)',
-                          borderRadius: 100, padding: '2px 7px', letterSpacing: '0.05em',
-                          fontFamily: 'var(--fh)',
-                        }}>{portal.tag}</span>
-                      </div>
-                      <p style={{ margin: 0, fontSize: 12, color: 'var(--text-3)', lineHeight: 1.55, fontFamily: 'var(--fb)' }}>
+                      <p style={{ margin: '0 0 2px', fontFamily: 'var(--fh)', fontWeight: 700, fontSize: 14, color: 'var(--text-1)', lineHeight: 1 }}>
+                        {portal.label}
+                      </p>
+                      <p style={{ margin: '0 0 4px', fontFamily: 'var(--fh)', fontSize: 11, fontWeight: 500, color: '#a78bfa', lineHeight: 1 }}>
+                        {portal.sub}
+                      </p>
+                      <p style={{ margin: 0, fontFamily: 'var(--fb)', fontSize: 11, color: 'var(--text-3)', lineHeight: 1.5, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
                         {portal.desc}
                       </p>
                     </div>
 
                     {/* Arrow */}
-                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style={{ flexShrink: 0, marginTop: 12, opacity: 0.35 }}>
-                      <path d="M3 7h8M7 3l4 4-4 4" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none" style={{ flexShrink: 0, opacity: 0.3 }}>
+                      <path d="M2.5 6.5h8M6.5 2.5l4 4-4 4" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                   </a>
                 ))}
               </div>
 
-              <div style={{ padding: '10px 24px 12px', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
+              {/* Footer */}
+              <div style={{ padding: '8px 16px 12px', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
                 <p style={{ margin: 0, fontSize: 11, color: 'var(--text-3)', fontFamily: 'var(--fb)' }}>
-                  Not sure which to use?{' '}
-                  <a href="mailto:sales@rikai.tech" style={{ color: '#a78bfa', textDecoration: 'none' }}>Contact us</a>
+                  Not sure?{' '}
+                  <a href="mailto:sales@rikai.tech" style={{ color: '#a78bfa', textDecoration: 'none', fontWeight: 600 }}>Contact us</a>
                 </p>
               </div>
             </div>
