@@ -196,29 +196,28 @@ export default function BookDemoModal({ onClose, initialEmail = '' }) {
           style={{ position: 'absolute', top: 18, right: 18, width: 34, height: 34, borderRadius: '50%', border: '1px solid rgba(255,255,255,0.15)', background: 'rgba(255,255,255,0.06)', color: 'var(--text-2)', fontSize: 20, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 10, lineHeight: 1 }}
         >×</button>
 
-        {/* Step indicator */}
-        <div style={{ padding: '28px 36px 0', display: 'flex', alignItems: 'center', gap: 8 }}>
-          {[1, 2].map(s => (
-            <div key={s} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-              <div style={{
-                width: 26, height: 26, borderRadius: '50%',
-                background: s === step ? 'var(--grad)' : s < step ? 'rgba(34,197,94,0.2)' : 'rgba(255,255,255,0.07)',
-                border: s === step ? 'none' : s < step ? '1px solid rgba(34,197,94,0.5)' : '1px solid rgba(255,255,255,0.1)',
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                fontSize: 11, fontWeight: 700, fontFamily: 'var(--fh)',
-                color: s < step ? '#4ade80' : s === step ? '#fff' : 'var(--text-3)',
-              }}>{s < step ? '✓' : s}</div>
-              <span style={{ fontSize: 12, fontFamily: 'var(--fh)', fontWeight: 500, color: s === step ? 'var(--text-1)' : 'var(--text-3)' }}>
-                {s === 1 ? 'Choose Slots' : 'Your Details'}
-              </span>
-              {s < 2 && <div style={{ width: 28, height: 1, background: 'rgba(255,255,255,0.1)', marginLeft: 4 }} />}
-            </div>
-          ))}
-        </div>
-
         {/* ── STEP 1 ── */}
         {step === 1 && (
-          <div style={{ padding: '24px 36px 36px' }}>
+          <div style={{ padding: '28px 36px 36px' }}>
+            {/* Step indicator */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 24 }}>
+              {[1, 2].map(s => (
+                <div key={s} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                  <div style={{
+                    width: 26, height: 26, borderRadius: '50%',
+                    background: s === step ? 'var(--grad)' : s < step ? 'rgba(34,197,94,0.2)' : 'rgba(255,255,255,0.07)',
+                    border: s === step ? 'none' : s < step ? '1px solid rgba(34,197,94,0.5)' : '1px solid rgba(255,255,255,0.1)',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    fontSize: 11, fontWeight: 700, fontFamily: 'var(--fh)',
+                    color: s < step ? '#4ade80' : s === step ? '#fff' : 'var(--text-3)',
+                  }}>{s < step ? '✓' : s}</div>
+                  <span style={{ fontSize: 12, fontFamily: 'var(--fh)', fontWeight: 500, color: s === step ? 'var(--text-1)' : 'var(--text-3)' }}>
+                    {s === 1 ? 'Choose Slots' : 'Your Details'}
+                  </span>
+                  {s < 2 && <div style={{ width: 28, height: 1, background: 'rgba(255,255,255,0.1)', marginLeft: 4 }} />}
+                </div>
+              ))}
+            </div>
             <h2 style={{ fontFamily: 'var(--fh)', fontSize: 24, fontWeight: 800, color: 'var(--text-1)', marginBottom: 8 }}>Schedule Your Demo</h2>
             <p style={{ color: 'var(--text-2)', fontSize: 14, lineHeight: 1.65, marginBottom: 28, maxWidth: 520 }}>
               Select <strong style={{ color: '#c4b5fd' }}>3 preferred 30-minute slots</strong> in order of priority.
@@ -372,7 +371,7 @@ export default function BookDemoModal({ onClose, initialEmail = '' }) {
 
             {!selectedDate && slots.length === 0 && (
               <p style={{ fontSize: 13, color: 'var(--text-3)', marginBottom: 24, textAlign: 'center', padding: '14px', background: 'rgba(255,255,255,0.02)', borderRadius: 10, border: '1px dashed rgba(255,255,255,0.08)' }}>
-                Pick a weekday from the calendar above to see available 30-minute slots
+                Pick a date from the calendar above to see available slots
               </p>
             )}
 
@@ -424,7 +423,26 @@ export default function BookDemoModal({ onClose, initialEmail = '' }) {
             </div>
 
             {/* Right — Form */}
-            <div style={{ padding: '32px 28px' }}>
+            <div style={{ padding: '28px 28px 32px' }}>
+              {/* Step indicator — inside right panel so it doesn't overlap left column */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 20, paddingBottom: 20, borderBottom: '1px solid rgba(255,255,255,0.07)' }}>
+                {[1, 2].map(s => (
+                  <div key={s} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                    <div style={{
+                      width: 26, height: 26, borderRadius: '50%',
+                      background: s === step ? 'var(--grad)' : s < step ? 'rgba(34,197,94,0.2)' : 'rgba(255,255,255,0.07)',
+                      border: s === step ? 'none' : s < step ? '1px solid rgba(34,197,94,0.5)' : '1px solid rgba(255,255,255,0.1)',
+                      display: 'flex', alignItems: 'center', justifyContent: 'center',
+                      fontSize: 11, fontWeight: 700, fontFamily: 'var(--fh)',
+                      color: s < step ? '#4ade80' : s === step ? '#fff' : 'var(--text-3)',
+                    }}>{s < step ? '✓' : s}</div>
+                    <span style={{ fontSize: 12, fontFamily: 'var(--fh)', fontWeight: 500, color: s === step ? 'var(--text-1)' : 'var(--text-3)' }}>
+                      {s === 1 ? 'Choose Slots' : 'Your Details'}
+                    </span>
+                    {s < 2 && <div style={{ width: 28, height: 1, background: 'rgba(255,255,255,0.1)', marginLeft: 4 }} />}
+                  </div>
+                ))}
+              </div>
               <h2 style={{ fontFamily: 'var(--fh)', fontSize: 20, fontWeight: 800, color: 'var(--text-1)', marginBottom: 4 }}>Your Details</h2>
               <p style={{ color: 'var(--text-3)', fontSize: 12, marginBottom: 20 }}>We'll send a calendar invite with all the details once we confirm your slot.</p>
 
@@ -472,7 +490,7 @@ export default function BookDemoModal({ onClose, initialEmail = '' }) {
                     type="tel"
                     value={form.phone}
                     onChange={e => setForm({ ...form, phone: e.target.value })}
-                    placeholder="+1 (555) 000-0000"
+                    placeholder="+91 98765 43210"
                     style={inputStyle}
                     onFocus={e => e.target.style.borderColor = 'rgba(124,58,237,0.5)'}
                     onBlur={e => e.target.style.borderColor = 'var(--border-md)'}
