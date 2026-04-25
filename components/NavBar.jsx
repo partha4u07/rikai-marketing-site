@@ -1,13 +1,45 @@
 'use client';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
+
+const PORTALS = [
+  {
+    key: 'voice',
+    icon: '🎙',
+    label: 'Voice Portal',
+    tag: 'For Participants',
+    desc: 'Join a research study, complete a survey, or share your feedback as a participant.',
+    href: 'https://www.rikai.tech',
+  },
+  {
+    key: 'customer',
+    icon: '◈',
+    label: 'Customer Portal',
+    tag: 'For Teams',
+    desc: 'Access your Rik AI workspace, manage research projects, and view insights.',
+    href: 'https://www.rikai.tech',
+  },
+];
 
 export default function NavBar({ onBookDemo }) {
   const [scrolled, setScrolled] = useState(false);
+  const [signInOpen, setSignInOpen] = useState(false);
+  const dropdownRef = useRef(null);
 
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 30);
     window.addEventListener('scroll', fn);
     return () => window.removeEventListener('scroll', fn);
+  }, []);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const fn = (e) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+        setSignInOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', fn);
+    return () => document.removeEventListener('mousedown', fn);
   }, []);
 
   const links = [
@@ -53,10 +85,107 @@ export default function NavBar({ onBookDemo }) {
       </div>
 
       <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-        <a href="#" style={{ ...linkStyle, padding: '8px 16px' }}
-          onMouseEnter={e => e.currentTarget.style.color = '#f0f0ff'}
-          onMouseLeave={e => e.currentTarget.style.color = 'rgba(240,240,255,0.68)'}
-        >Sign in</a>
+
+        {/* Sign in with dropdown */}
+        <div ref={dropdownRef} style={{ position: 'relative' }}>
+          <button
+            onClick={() => setSignInOpen(o => !o)}
+            style={{
+              ...linkStyle,
+              padding: '8px 14px',
+              background: 'none', border: 'none', cursor: 'pointer',
+              display: 'flex', alignItems: 'center', gap: 6,
+            }}
+            onMouseEnter={e => e.currentTarget.style.color = '#f0f0ff'}
+            onMouseLeave={e => e.currentTarget.style.color = 'rgba(240,240,255,0.68)'}
+          >
+            Sign in
+            <svg
+              width="12" height="12" viewBox="0 0 12 12" fill="none"
+              style={{ transition: 'transform 0.2s', transform: signInOpen ? 'rotate(180deg)' : 'rotate(0deg)', opacity: 0.6 }}
+            >
+              <path d="M2 4l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </button>
+
+          {/* Dropdown */}
+          {signInOpen && (
+            <div style={{
+              position: 'absolute', top: 'calc(100% + 10px)', right: 0,
+              width: 300,
+              background: 'rgba(15,15,30,0.98)',
+              border: '1px solid rgba(124,58,237,0.25)',
+              borderRadius: 16,
+              boxShadow: '0 24px 64px rgba(0,0,0,0.6), 0 0 40px rgba(124,58,237,0.1)',
+              backdropFilter: 'blur(24px)',
+              overflow: 'hidden',
+              zIndex: 300,
+            }}>
+              <div style={{ padding: '10px 10px 10px' }}>
+                {PORTALS.map((portal, i) => (
+                  <a
+                    key={portal.key}
+                    href={portal.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => setSignInOpen(false)}
+                    style={{
+                      display: 'flex', alignItems: 'flex-start', gap: 14,
+                      padding: '14px 14px',
+                      borderRadius: 12,
+                      textDecoration: 'none',
+                      transition: 'background 0.15s',
+                      background: 'transparent',
+                      marginBottom: i < PORTALS.length - 1 ? 2 : 0,
+                    }}
+                    onMouseEnter={e => e.currentTarget.style.background = 'rgba(124,58,237,0.12)'}
+                    onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
+                  >
+                    {/* Icon */}
+                    <div style={{
+                      width: 38, height: 38, borderRadius: 10, flexShrink: 0,
+                      background: 'rgba(124,58,237,0.15)',
+                      border: '1px solid rgba(124,58,237,0.25)',
+                      display: 'flex', alignItems: 'center', justifyContent: 'center',
+                      fontSize: 16,
+                    }}>{portal.icon}</div>
+
+                    {/* Text */}
+                    <div style={{ flex: 1, minWidth: 0 }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 3 }}>
+                        <span style={{ fontFamily: 'var(--fh)', fontWeight: 700, fontSize: 14, color: 'var(--text-1)' }}>
+                          {portal.label}
+                        </span>
+                        <span style={{
+                          fontSize: 9, fontWeight: 700, color: '#a78bfa',
+                          background: 'rgba(124,58,237,0.18)', border: '1px solid rgba(124,58,237,0.3)',
+                          borderRadius: 100, padding: '2px 7px', letterSpacing: '0.05em',
+                          fontFamily: 'var(--fh)',
+                        }}>{portal.tag}</span>
+                      </div>
+                      <p style={{ margin: 0, fontSize: 12, color: 'var(--text-3)', lineHeight: 1.55, fontFamily: 'var(--fb)' }}>
+                        {portal.desc}
+                      </p>
+                    </div>
+
+                    {/* Arrow */}
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style={{ flexShrink: 0, marginTop: 12, opacity: 0.35 }}>
+                      <path d="M3 7h8M7 3l4 4-4 4" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </a>
+                ))}
+              </div>
+
+              <div style={{ padding: '10px 24px 12px', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
+                <p style={{ margin: 0, fontSize: 11, color: 'var(--text-3)', fontFamily: 'var(--fb)' }}>
+                  Not sure which to use?{' '}
+                  <a href="mailto:sales@rikai.tech" style={{ color: '#a78bfa', textDecoration: 'none' }}>Contact us</a>
+                </p>
+              </div>
+            </div>
+          )}
+        </div>
+
         <button onClick={() => onBookDemo()} style={{
           background: 'var(--grad)', color: '#fff',
           fontFamily: 'var(--fh)', fontWeight: 600, fontSize: '14px',
