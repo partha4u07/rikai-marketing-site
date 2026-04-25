@@ -134,9 +134,11 @@ async function upsertHubSpotContact({ name, company, email, phone }) {
   return null;
 }
 
-async function createHubSpotDeal({ name, company, slots, notes, contactId }) {
+async function createHubSpotDeal({ name, company, slots, notes, guests, contactId }) {
   const slotsSummary = slots.map((s, i) => `#${i + 1}: ${formatSlotShort(s)}`).join(' | ');
-  const description = `Preferred slots: ${slotsSummary}${notes ? `\n\nNotes: ${notes}` : ''}`;
+  const parts = [`Preferred slots: ${slotsSummary}`];
+  if (guests?.length) parts.push(`Guests: ${guests.join(', ')}`);
+  if (notes) parts.push(`Notes: ${notes}`);
 
   const associations = contactId
     ? [{ to: { id: contactId }, types: [{ associationCategory: 'HUBSPOT_DEFINED', associationTypeId: 3 }] }]
@@ -147,12 +149,35 @@ async function createHubSpotDeal({ name, company, slots, notes, contactId }) {
       dealname: `Demo Request — ${name} (${company})`,
       dealstage: 'appointmentscheduled',
       pipeline: 'default',
-      description,
+      description: parts.join('\n\n'),
     },
     associations,
   });
 
   return deal.ok ? deal.data : null;
+}
+
+async function createHubSpotNote({ slots, guests, notes, contactId, dealId }) {
+  const slotsText = slots.map((s, i) => `#${i + 1}  ${formatSlotLong(s)}`).join('\n');
+  const guestsText = guests?.length ? guests.map(g => `• ${g}`).join('\n') : 'None';
+  const notesText = notes?.trim() || 'Not provided';
+
+  const noteBody = `PREFERRED SLOTS\n${slotsText}\n\nGUESTS TO INCLUDE IN CALENDAR INVITE\n${guestsText}\n\nADDITIONAL NOTES FROM PROSPECT\n${notesText}`;
+
+  const note = await hubspotRequest('/crm/v3/objects/notes', 'POST', {
+    properties: {
+      hs_note_body: noteBody,
+      hs_timestamp: new Date().toISOString(),
+    },
+  });
+
+  if (!note.ok) return;
+  const noteId = note.data.id;
+
+  await Promise.allSettled([
+    contactId && hubspotRequest(`/crm/v3/objects/notes/${noteId}/associations/contacts/${contactId}/note_to_contact`, 'PUT'),
+    dealId    && hubspotRequest(`/crm/v3/objects/notes/${noteId}/associations/deals/${dealId}/note_to_deal`, 'PUT'),
+  ]);
 }
 
 // ─── Route handler ────────────────────────────────────────────────────────────
@@ -187,7 +212,8 @@ export async function POST(request) {
       // HubSpot CRM
       (async () => {
         const contactId = await upsertHubSpotContact({ name, company, email, phone });
-        await createHubSpotDeal({ name, company, slots, notes, contactId });
+        const deal = await createHubSpotDeal({ name, company, slots, notes, guests, contactId });
+        await createHubSpotNote({ slots, guests, notes, contactId, dealId: deal?.id || null });
       })(),
     ]);
 
