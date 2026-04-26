@@ -71,7 +71,7 @@ export default function FooterSection() {
           ))}
         </div>
         <div className="footer-bottom" style={{ borderTop: '1px solid var(--border)', paddingTop: 28, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <span style={{ fontSize: 13, color: 'var(--text-3)' }}>© 2026 Rik AI. All rights reserved.</span>
+          <span style={{ fontSize: 13, color: 'var(--text-3)' }}>© 2026 Rik Technologies. All rights reserved.</span>
           <span style={{ fontSize: 13, color: 'var(--text-3)' }}>Inspired by knowledge. Built for clarity.</span>
         </div>
       </div>
