@@ -44,11 +44,7 @@ export default function TermsPage() {
             Rik<span className="gt">.ai</span>
           </span>
         </a>
-        <a href="/"
-          style={{ fontSize: 14, color: 'var(--text-3)', fontFamily: 'var(--fh)', transition: 'color 0.2s' }}
-          onMouseEnter={e => e.currentTarget.style.color = 'var(--text-1)'}
-          onMouseLeave={e => e.currentTarget.style.color = 'var(--text-3)'}
-        >← Back to home</a>
+        <a href="/" style={{ fontSize: 14, color: 'var(--text-3)', fontFamily: 'var(--fh)' }}>← Back to home</a>
       </div>
 
       {/* Hero */}
@@ -176,11 +172,7 @@ export default function TermsPage() {
       <div style={{ borderTop: '1px solid var(--border)', padding: '24px 48px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <span style={{ fontSize: 13, color: 'var(--text-3)' }}>© 2026 Rik Technologies. All rights reserved.</span>
         <div style={{ display: 'flex', gap: 24 }}>
-          <a href="/privacy"
-            style={{ fontSize: 13, color: 'var(--text-3)', transition: 'color 0.2s' }}
-            onMouseEnter={e => e.currentTarget.style.color = 'var(--text-1)'}
-            onMouseLeave={e => e.currentTarget.style.color = 'var(--text-3)'}
-          >Privacy Policy</a>
+          <a href="/privacy" style={{ fontSize: 13, color: 'var(--text-3)' }}>Privacy Policy</a>
           <a href="/terms" style={{ fontSize: 13, color: 'var(--purple-light)' }}>Terms of Service</a>
         </div>
       </div>
