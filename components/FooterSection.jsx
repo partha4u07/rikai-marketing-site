@@ -16,15 +16,11 @@ const cols = [
       { label: 'UX Research', href: '#personas' },
       { label: 'Product Managers', href: '#personas' },
       { label: 'Strategy & Leadership', href: '#personas' },
-      { label: 'Enterprise', href: 'mailto:sales@rikai.tech?subject=Enterprise%20Enquiry%20%E2%80%94%20Rik%20AI' },
     ],
   },
   {
     title: 'Resources',
     links: [
-      { label: 'Documentation', href: '#' },
-      { label: 'API Reference', href: '#' },
-      { label: 'Blog', href: '#' },
       { label: 'Help Centre', href: 'mailto:sales@rikai.tech' },
       { label: 'Contact', href: 'mailto:sales@rikai.tech' },
     ],
@@ -32,10 +28,8 @@ const cols = [
   {
     title: 'Company',
     links: [
-      { label: 'About', href: '#' },
-      { label: 'Careers', href: '#' },
-      { label: 'Privacy Policy', href: '#' },
-      { label: 'Terms of Service', href: '#' },
+      { label: 'Privacy Policy', href: '/privacy' },
+      { label: 'Terms of Service', href: '/terms' },
     ],
   },
 ];
