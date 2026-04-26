@@ -1,8 +1,43 @@
 const cols = [
-  { title: 'Product', links: ['Platform Capabilities', 'How It Works', 'Ask Rishi', 'Intelligence Layers', 'Changelog'] },
-  { title: 'Solutions', links: ['CX Teams', 'UX Research', 'Product Managers', 'Strategy & Leadership', 'Enterprise'] },
-  { title: 'Resources', links: ['Documentation', 'API Reference', 'Blog', 'Help Centre', 'Contact'] },
-  { title: 'Company', links: ['About', 'Careers', 'Privacy Policy', 'Terms of Service'] },
+  {
+    title: 'Product',
+    links: [
+      { label: 'Platform Capabilities', href: '#features' },
+      { label: 'How It Works', href: '#howitworks' },
+      { label: 'Ask Rishi', href: '#rishi' },
+      { label: 'Product Overview', href: '#product' },
+      { label: 'Book a Demo', href: '#cta' },
+    ],
+  },
+  {
+    title: 'Solutions',
+    links: [
+      { label: 'CX Teams', href: '#personas' },
+      { label: 'UX Research', href: '#personas' },
+      { label: 'Product Managers', href: '#personas' },
+      { label: 'Strategy & Leadership', href: '#personas' },
+      { label: 'Enterprise', href: 'mailto:sales@rikai.tech?subject=Enterprise%20Enquiry%20%E2%80%94%20Rik%20AI' },
+    ],
+  },
+  {
+    title: 'Resources',
+    links: [
+      { label: 'Documentation', href: '#' },
+      { label: 'API Reference', href: '#' },
+      { label: 'Blog', href: '#' },
+      { label: 'Help Centre', href: 'mailto:sales@rikai.tech' },
+      { label: 'Contact', href: 'mailto:sales@rikai.tech' },
+    ],
+  },
+  {
+    title: 'Company',
+    links: [
+      { label: 'About', href: '#' },
+      { label: 'Careers', href: '#' },
+      { label: 'Privacy Policy', href: '#' },
+      { label: 'Terms of Service', href: '#' },
+    ],
+  },
 ];
 
 export default function FooterSection() {
@@ -30,10 +65,13 @@ export default function FooterSection() {
             <div key={col.title}>
               <div style={{ fontFamily: 'var(--fh)', fontWeight: 700, fontSize: 13, color: 'var(--text-1)', marginBottom: 20 }}>{col.title}</div>
               {col.links.map(l => (
-                <a key={l} href="#" style={{ display: 'block', fontSize: 13.5, color: 'var(--text-3)', marginBottom: 12, transition: 'color 0.2s' }}
+                <a
+                  key={l.label}
+                  href={l.href}
+                  style={{ display: 'block', fontSize: 13.5, color: 'var(--text-3)', marginBottom: 12, transition: 'color 0.2s', textDecoration: 'none' }}
                   onMouseEnter={e => e.currentTarget.style.color = 'var(--text-1)'}
                   onMouseLeave={e => e.currentTarget.style.color = 'var(--text-3)'}
-                >{l}</a>
+                >{l.label}</a>
               ))}
             </div>
           ))}
