@@ -22,10 +22,6 @@ const Li = ({ children }) => (
   <li style={{ fontSize: 15, color: 'var(--text-2)', lineHeight: 1.8, marginBottom: 7, paddingLeft: 4 }}>{children}</li>
 );
 
-const Bold = ({ children }) => (
-  <strong style={{ color: 'var(--text-1)', fontWeight: 600 }}>{children}</strong>
-);
-
 export default function TermsPage() {
   return (
     <div style={{ background: 'var(--bg)', minHeight: '100vh', fontFamily: 'var(--fb)' }}>
@@ -63,104 +59,122 @@ export default function TermsPage() {
 
         <P>
           These Terms govern your use of the Rik.ai marketing website at{' '}
-          <a href="https://rikai.tech" style={{ color: 'var(--purple-light)' }}>rikai.tech</a>, operated by Rik Technologies. By browsing or using this site, you agree to these Terms.
+          <a href="https://rikai.tech" style={{ color: 'var(--purple-light)' }}>rikai.tech</a>,
+          operated by Rik Technologies (&quot;we&quot;, &quot;us&quot;, &quot;our&quot;).
         </P>
+        <P>By accessing or using this website, you agree to these Terms.</P>
 
-        {/* Platform terms callout */}
-        <div style={{
-          background: 'rgba(124,58,237,0.07)',
-          border: '1px solid rgba(124,58,237,0.2)',
-          borderRadius: 10, padding: '16px 20px', marginBottom: 40,
-        }}>
-          <p style={{ margin: 0, fontSize: 14, color: 'var(--text-2)', lineHeight: 1.7 }}>
-            <strong style={{ color: 'var(--purple-light)' }}>These Terms apply to this website only.</strong>{' '}
-            Use of the Rik.ai product platform is governed by a separate set of Platform Terms. If you&apos;re a platform user, please refer to those instead.
-          </p>
-        </div>
+        <Section title="Scope of these Terms">
+          <P>These Terms apply only to your use of this marketing website.</P>
+          <ul style={{ paddingLeft: 18, marginBottom: 14 }}>
+            <Li>They do not govern use of the Rik.ai product platform.</Li>
+            <Li>If you access or use the Rik.ai platform, separate Platform Terms will apply.</Li>
+          </ul>
+        </Section>
 
         <Section title="What this website is">
-          <P>
-            rikai.tech is the public marketing website for Rik.ai — a product built by Rik Technologies. Here you can learn about the product, book a demo, and get in touch with our team. This site is not the product platform itself.
-          </P>
-        </Section>
-
-        <Section title="Acceptance of terms">
-          <P>
-            By accessing rikai.tech, you confirm that you&apos;ve read and agreed to these Terms. If you don&apos;t agree, please don&apos;t use the site. We may update these Terms from time to time — continued use of the site means you accept any changes.
-          </P>
-        </Section>
-
-        <Section title="Permitted use">
-          <P>You&apos;re welcome to browse this site, read our content, and reach out to us. In return, we ask that you:</P>
+          <P>rikai.tech is the public-facing website for Rik.ai. It is intended to:</P>
           <ul style={{ paddingLeft: 18, marginBottom: 14 }}>
-            <Li>Use the website for lawful purposes only</Li>
-            <Li>Be honest and accurate when submitting forms or contacting us</Li>
-            <Li>Respect the integrity of our systems and infrastructure</Li>
+            <Li>Provide information about our product</Li>
+            <Li>Allow you to request demos or contact our team</Li>
+          </ul>
+          <P>This website does not provide access to the Rik.ai platform or its services.</P>
+        </Section>
+
+        <Section title="Acceptance of Terms">
+          <P>By using this website, you confirm that you have read and agree to these Terms.</P>
+          <P>If you do not agree, please do not use the site.</P>
+          <P>We may update these Terms from time to time. Continued use of the website after updates constitutes acceptance of the revised Terms.</P>
+        </Section>
+
+        <Section title="Permitted Use">
+          <P>You may use this website to:</P>
+          <ul style={{ paddingLeft: 18, marginBottom: 16 }}>
+            <Li>Browse content</Li>
+            <Li>Learn about Rik.ai</Li>
+            <Li>Submit legitimate enquiries or demo requests</Li>
+          </ul>
+          <P>You agree to:</P>
+          <ul style={{ paddingLeft: 18, marginBottom: 14 }}>
+            <Li>Use the website only for lawful purposes</Li>
+            <Li>Provide accurate and truthful information</Li>
+            <Li>Not interfere with the normal functioning of the site</Li>
           </ul>
         </Section>
 
-        <Section title="Prohibited use">
+        <Section title="Prohibited Use">
           <P>You may not:</P>
           <ul style={{ paddingLeft: 18, marginBottom: 14 }}>
-            <Li>Scrape, crawl, or extract content from this website using automated tools</Li>
-            <Li>Submit fake, fraudulent, or misleading enquiries</Li>
-            <Li>Attempt to gain unauthorised access to any part of our systems</Li>
-            <Li>Reproduce or redistribute our content commercially without written permission</Li>
-            <Li>Use this website for any unlawful, abusive, or harmful purpose</Li>
+            <Li>Scrape, crawl, or extract content using automated tools</Li>
+            <Li>Submit false, misleading, or fraudulent information</Li>
+            <Li>Attempt unauthorised access to systems or infrastructure</Li>
+            <Li>Reproduce or commercially exploit website content without permission</Li>
+            <Li>Use the website for unlawful, abusive, or harmful purposes</Li>
           </ul>
         </Section>
 
-        <Section title="Intellectual property">
-          <P>
-            Everything on this website — including text, design, product names, logos, and visual assets — is owned by Rik Technologies and protected under applicable intellectual property law.
-          </P>
-          <P>
-            You may share or reference our content for personal, editorial, or journalistic use. Reproduction for commercial purposes requires our prior written permission.
-          </P>
+        <Section title="Intellectual Property">
+          <P>All content on this website — including text, branding, design, and visuals — is owned by Rik Technologies and protected by applicable intellectual property laws.</P>
+          <P>You may:</P>
+          <ul style={{ paddingLeft: 18, marginBottom: 16 }}>
+            <Li>Reference or share content for personal or editorial use</Li>
+          </ul>
+          <P>You may not:</P>
+          <ul style={{ paddingLeft: 18, marginBottom: 14 }}>
+            <Li>Reproduce or distribute content for commercial purposes without written permission</Li>
+          </ul>
         </Section>
 
-        <Section title="No warranties">
-          <P>
-            This website is provided as-is and as-available. We aim to keep it accurate and up to date, but we make no guarantees about the completeness, accuracy, or uninterrupted availability of anything on it.
-          </P>
-          <P>
-            Content on this site is for informational purposes and should not be taken as professional, legal, or financial advice.
-          </P>
+        <Section title="Website Availability & Changes">
+          <P>We may modify, suspend, or discontinue any part of this website at any time without notice.</P>
+          <P>We do not guarantee that the website will always be available, secure, or error-free.</P>
         </Section>
 
-        <Section title="Limitation of liability">
-          <P>
-            To the extent permitted by law, Rik Technologies is not liable for any direct or indirect loss arising from your use of — or inability to use — this website, or from reliance on any content published here.
-          </P>
+        <Section title="No Warranties">
+          <P>This website is provided on an &quot;as is&quot; and &quot;as available&quot; basis.</P>
+          <P>We make no warranties regarding:</P>
+          <ul style={{ paddingLeft: 18, marginBottom: 14 }}>
+            <Li>Accuracy or completeness of content</Li>
+            <Li>Availability or reliability of the website</Li>
+          </ul>
+          <P>Content is for general informational purposes only and should not be relied upon as professional advice.</P>
         </Section>
 
-        <Section title="Links to third-party sites">
-          <P>
-            This website may contain links to external sites we don&apos;t own or control. We&apos;re not responsible for their content, privacy practices, or availability. We recommend reviewing their policies before sharing any personal information.
-          </P>
+        <Section title="Limitation of Liability">
+          <P>To the extent permitted by law, Rik Technologies will not be liable for any indirect, incidental, or consequential damages arising from:</P>
+          <ul style={{ paddingLeft: 18, marginBottom: 14 }}>
+            <Li>Your use of (or inability to use) this website</Li>
+            <Li>Reliance on any content provided on the site</Li>
+          </ul>
         </Section>
 
-        <Section title="Governing law">
-          <P>
-            These Terms are governed by the laws of India. Any disputes arising from your use of this website will be subject to the jurisdiction of competent courts in India.
-          </P>
+        <Section title="Third-Party Links">
+          <P>This website may contain links to external websites.</P>
+          <P>We do not control or endorse these sites and are not responsible for their content, policies, or availability.</P>
         </Section>
 
-        <Section title="Changes to these terms">
+        <Section title="Privacy">
           <P>
-            We may update these Terms from time to time. The &quot;Last updated&quot; date at the top will always reflect the most recent version. Continued use of the site after any update constitutes your acceptance of the revised Terms.
+            Your use of this website is also governed by our{' '}
+            <a href="/privacy" style={{ color: 'var(--purple-light)', fontWeight: 600 }}>Privacy Policy</a>.
           </P>
+          <P>If you interact with the Rik.ai platform, a separate Platform Privacy Policy will apply.</P>
+        </Section>
+
+        <Section title="Governing Law">
+          <P>These Terms are governed by the laws of India.</P>
+          <P>Any disputes will be subject to the jurisdiction of courts in India.</P>
         </Section>
 
         <Section title="Contact">
-          <P>Questions about these Terms? We&apos;re happy to help.</P>
+          <P>For any questions about these Terms:</P>
           <div style={{
             background: 'var(--surface)', border: '1px solid var(--border)',
             borderRadius: 10, padding: '18px 22px',
           }}>
             <p style={{ margin: '0 0 4px', fontSize: 15, color: 'var(--text-1)', fontWeight: 700, fontFamily: 'var(--fh)' }}>Rik Technologies</p>
             <p style={{ margin: 0, fontSize: 14, color: 'var(--text-3)', lineHeight: 1.9 }}>
-              <a href="mailto:contact@rikai.tech" style={{ color: 'var(--purple-light)' }}>contact@rikai.tech</a><br />
+              Email: <a href="mailto:contact@rikai.tech" style={{ color: 'var(--purple-light)' }}>contact@rikai.tech</a><br />
               <a href="https://rikai.tech" style={{ color: 'var(--text-3)' }}>https://rikai.tech</a>
             </p>
           </div>
