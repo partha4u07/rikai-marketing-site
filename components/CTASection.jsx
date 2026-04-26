@@ -1,8 +1,7 @@
 'use client';
 import { useState } from 'react';
 
-export default function CTASection({ tweaks }) {
-  const [submitted, setSubmitted] = useState(false);
+export default function CTASection({ onBookDemo }) {
   const [email, setEmail] = useState('');
 
   return (
@@ -21,37 +20,33 @@ export default function CTASection({ tweaks }) {
           Join forward-thinking teams using Rik AI to build a continuous, reliable understanding of their customers — and make decisions with confidence, not guesswork.
         </p>
         <p style={{ fontSize: 14, color: 'rgba(167,139,250,0.6)', marginBottom: 52 }}>The new verse of market intelligence.</p>
-        {!submitted ? (
-          <>
-            <div className="cta-inputs" style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap', marginBottom: 14 }}>
-              <input
-                value={email}
-                onChange={e => setEmail(e.target.value)}
-                placeholder="Enter your work email"
-                style={{ padding: '14px 22px', borderRadius: 12, border: '1px solid var(--border-md)', background: 'rgba(255,255,255,0.06)', color: 'var(--text-1)', fontSize: 15, outline: 'none', minWidth: 290, fontFamily: 'var(--fb)' }}
-                onFocus={e => e.target.style.borderColor = 'rgba(124,58,237,0.5)'}
-                onBlur={e => e.target.style.borderColor = 'var(--border-md)'}
-              />
-              <button
-                onClick={() => email && setSubmitted(true)}
-                style={{ background: 'var(--grad)', color: '#fff', fontFamily: 'var(--fh)', fontWeight: 700, fontSize: 15, padding: '14px 32px', borderRadius: 12, border: 'none', cursor: 'pointer', boxShadow: '0 0 40px rgba(124,58,237,0.5)', transition: 'transform 0.2s, box-shadow 0.2s' }}
-                onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 8px 48px rgba(124,58,237,0.65)'; }}
-                onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 0 40px rgba(124,58,237,0.5)'; }}
-              >Book a Demo →</button>
-            </div>
-            <div style={{ display: 'flex', justifyContent: 'center' }}>
-              <a href="mailto:sales@rik.ai" style={{ display: 'inline-block', padding: '13px 28px', borderRadius: 12, border: '1px solid var(--border-md)', background: 'rgba(255,255,255,0.04)', color: 'var(--text-2)', fontFamily: 'var(--fh)', fontWeight: 500, fontSize: 14, transition: 'all 0.2s' }}
-                onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.08)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)'; }}
-                onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.04)'; e.currentTarget.style.borderColor = 'var(--border-md)'; }}
-              >Contact Sales</a>
-            </div>
-          </>
-        ) : (
-          <div style={{ padding: '24px 48px', background: 'rgba(34,197,94,0.1)', border: '1px solid rgba(34,197,94,0.3)', borderRadius: 16, display: 'inline-block' }}>
-            <div style={{ color: '#4ade80', fontFamily: 'var(--fh)', fontWeight: 700, fontSize: 18, marginBottom: 6 }}>✓ You're on the list.</div>
-            <div style={{ color: 'var(--text-2)', fontSize: 14 }}>Our team will be in touch within 24 hours.</div>
-          </div>
-        )}
+
+        <div className="cta-inputs" style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap', marginBottom: 14 }}>
+          <input
+            value={email}
+            onChange={e => setEmail(e.target.value)}
+            placeholder="Enter your work email"
+            style={{ padding: '14px 22px', borderRadius: 12, border: '1px solid var(--border-md)', background: 'rgba(255,255,255,0.06)', color: 'var(--text-1)', fontSize: 15, outline: 'none', minWidth: 290, fontFamily: 'var(--fb)' }}
+            onFocus={e => e.target.style.borderColor = 'rgba(124,58,237,0.5)'}
+            onBlur={e => e.target.style.borderColor = 'var(--border-md)'}
+          />
+          <button
+            onClick={() => onBookDemo(email)}
+            style={{ background: 'var(--grad)', color: '#fff', fontFamily: 'var(--fh)', fontWeight: 700, fontSize: 15, padding: '14px 32px', borderRadius: 12, border: 'none', cursor: 'pointer', boxShadow: '0 0 40px rgba(124,58,237,0.5)', transition: 'transform 0.2s, box-shadow 0.2s' }}
+            onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 8px 48px rgba(124,58,237,0.65)'; }}
+            onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 0 40px rgba(124,58,237,0.5)'; }}
+          >Book a Demo →</button>
+        </div>
+
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <a
+            href="mailto:sales@rikai.tech?subject=Sales%20Enquiry%20%E2%80%94%20Rik%20AI"
+            style={{ display: 'inline-block', padding: '13px 28px', borderRadius: 12, border: '1px solid var(--border-md)', background: 'rgba(255,255,255,0.04)', color: 'var(--text-2)', fontFamily: 'var(--fh)', fontWeight: 500, fontSize: 14, transition: 'all 0.2s' }}
+            onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.08)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)'; }}
+            onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.04)'; e.currentTarget.style.borderColor = 'var(--border-md)'; }}
+          >Contact Sales at sales@rikai.tech</a>
+        </div>
+
         <p style={{ marginTop: 22, fontSize: 13, color: 'var(--text-3)' }}>Tailored onboarding · Enterprise-ready · No commitment required</p>
       </div>
     </section>
