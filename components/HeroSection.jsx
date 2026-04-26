@@ -97,10 +97,9 @@ export function CredibilityStrip() {
   );
 }
 
-export default function HeroSection({ tweaks, onBookDemo }) {
-  const ctaLabel = tweaks?.cta === 'trial' ? 'Start Free Trial' : tweaks?.cta === 'waitlist' ? 'Join Waitlist' : 'Book a Demo';
-  const variant = heroVariants[tweaks?.heroVariant || 'A'];
-  const heroSize = tweaks?.heroSize || 52;
+export default function HeroSection({ onBookDemo }) {
+  const variant = heroVariants['A'];
+  const heroSize = 52;
 
   return (
     <>
@@ -131,7 +130,7 @@ export default function HeroSection({ tweaks, onBookDemo }) {
               <button onClick={() => onBookDemo()} style={{ background: 'var(--grad)', color: '#fff', fontFamily: 'var(--fh)', fontWeight: 600, fontSize: 15, padding: '14px 30px', borderRadius: 12, boxShadow: '0 0 40px rgba(124,58,237,0.5)', transition: 'transform 0.2s, box-shadow 0.2s', border: 'none', cursor: 'pointer' }}
                 onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 8px 48px rgba(124,58,237,0.65)'; }}
                 onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 0 40px rgba(124,58,237,0.5)'; }}
-              >{ctaLabel} →</button>
+              >Book a Demo →</button>
               <a href="#howitworks" style={{ color: 'var(--text-1)', fontFamily: 'var(--fh)', fontWeight: 500, fontSize: 15, padding: '14px 26px', borderRadius: 12, border: '1px solid var(--border-md)', background: 'rgba(255,255,255,0.04)', transition: 'background 0.2s, border-color 0.2s', display: 'inline-block' }}
                 onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.08)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)'; }}
                 onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.04)'; e.currentTarget.style.borderColor = 'var(--border-md)'; }}

@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
 
-export default function CTASection({ tweaks, onBookDemo }) {
+export default function CTASection({ onBookDemo }) {
   const [email, setEmail] = useState('');
 
   return (
