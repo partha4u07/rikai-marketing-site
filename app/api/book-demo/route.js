@@ -144,7 +144,7 @@ function confirmationEmailHTML({ name, slots, guests, notes }) {
 
     <!-- Header -->
     <div style="background:linear-gradient(135deg,#7c3aed,#4f6ef7);border-radius:12px 12px 0 0;padding:32px;text-align:center">
-      <div style="width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,0.2);margin:0 auto 16px;display:flex;align-items:center;justify-content:center;font-size:22px">✓</div>
+      <div style="width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,0.2);margin:0 auto 16px;text-align:center;line-height:48px;font-size:22px;color:#fff">✓</div>
       <h1 style="margin:0;color:#fff;font-size:22px;font-weight:800">Your demo is being scheduled</h1>
       <p style="margin:8px 0 0;color:rgba(255,255,255,0.8);font-size:14px">Hi ${name}, we've received your preferred slots</p>
     </div>
