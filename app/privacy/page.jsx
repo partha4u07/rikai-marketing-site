@@ -22,10 +22,6 @@ const Li = ({ children }) => (
   <li style={{ fontSize: 15, color: 'var(--text-2)', lineHeight: 1.8, marginBottom: 7, paddingLeft: 4 }}>{children}</li>
 );
 
-const Bold = ({ children }) => (
-  <strong style={{ color: 'var(--text-1)', fontWeight: 600 }}>{children}</strong>
-);
-
 export default function PrivacyPage() {
   return (
     <div style={{ background: 'var(--bg)', minHeight: '100vh', fontFamily: 'var(--fb)' }}>
@@ -62,89 +58,149 @@ export default function PrivacyPage() {
       <div style={{ maxWidth: 720, margin: '0 auto', padding: '56px 24px 96px' }}>
 
         <P>
-          We&apos;re Rik Technologies, the company behind Rik.ai. This page explains how we handle data collected through our marketing website at{' '}
-          <a href="https://rikai.tech" style={{ color: 'var(--purple-light)' }}>rikai.tech</a> — where you can learn about the product, book a demo, or get in touch.
+          Rik Technologies (&quot;we&quot;, &quot;us&quot;, &quot;our&quot;) operates the Rik.ai marketing website at{' '}
+          <a href="https://rikai.tech" style={{ color: 'var(--purple-light)' }}>https://rikai.tech</a>.
+        </P>
+        <P>
+          This Privacy Policy explains how we collect, use, and protect information when you visit this website, request a demo, or contact us.
         </P>
 
-        {/* Platform policy callout */}
+        {/* Scope callout */}
         <div style={{
           background: 'rgba(124,58,237,0.07)',
           border: '1px solid rgba(124,58,237,0.2)',
           borderRadius: 10, padding: '16px 20px', marginBottom: 40,
         }}>
           <p style={{ margin: 0, fontSize: 14, color: 'var(--text-2)', lineHeight: 1.7 }}>
-            <strong style={{ color: 'var(--purple-light)' }}>This policy covers this website only.</strong>{' '}
-            If you use the Rik.ai product platform, a separate Platform Privacy Policy governs how that data is handled. Please refer to it for details on platform usage.
+            <strong style={{ color: 'var(--purple-light)' }}>This policy applies only to this website.</strong>{' '}
+            If you use the Rik.ai product platform, a separate Platform Privacy Policy governs how your data is handled in that context.
           </p>
         </div>
 
-        <Section title="What we collect">
-          <P>When you browse or reach out through this website, we may collect:</P>
-          <ul style={{ paddingLeft: 18, marginBottom: 14 }}>
-            <Li><Bold>Contact details</Bold> — your name, email address, company name, phone number, and any message you submit through our demo booking or contact forms</Li>
-            <Li><Bold>Technical data</Bold> — IP address, browser type, device type, and pages visited, collected automatically through standard server logs</Li>
-          </ul>
-          <P>We don&apos;t collect payment data, sensitive personal information, or anything beyond what&apos;s needed to respond to you.</P>
+        <Section title="Who we are">
+          <P>
+            Rik.ai is an AI-powered market research platform built by Rik Technologies, based in India.
+          </P>
+          <P>
+            For the purposes of applicable data protection laws, Rik Technologies acts as the entity responsible for handling your data collected through this website.
+          </P>
         </Section>
 
-        <Section title="How we use it">
-          <ul style={{ paddingLeft: 18, marginBottom: 14 }}>
-            <Li>To respond to your enquiries and schedule product demos</Li>
-            <Li>To send you relevant information about Rik.ai, if you&apos;ve opted in</Li>
-            <Li>To understand how people use our website so we can improve it</Li>
+        <Section title="What we collect">
+          <P>When you interact with this website, we may collect:</P>
+
+          <p style={{ fontSize: 13, fontWeight: 700, color: 'var(--purple-light)', textTransform: 'uppercase', letterSpacing: '0.07em', fontFamily: 'var(--fh)', marginBottom: 8 }}>Contact information</p>
+          <ul style={{ paddingLeft: 18, marginBottom: 20 }}>
+            <Li>Name</Li>
+            <Li>Email address</Li>
+            <Li>Company name</Li>
+            <Li>Phone number (if provided)</Li>
+            <Li>Any message or details you submit</Li>
           </ul>
-          <P>We don&apos;t use your data to make automated decisions about you, and we don&apos;t use it for any purpose beyond what&apos;s described here.</P>
+
+          <p style={{ fontSize: 13, fontWeight: 700, color: 'var(--purple-light)', textTransform: 'uppercase', letterSpacing: '0.07em', fontFamily: 'var(--fh)', marginBottom: 8 }}>Technical information</p>
+          <ul style={{ paddingLeft: 18, marginBottom: 14 }}>
+            <Li>IP address</Li>
+            <Li>Browser and device type</Li>
+            <Li>Pages visited and interaction data</Li>
+          </ul>
+
+          <P>We collect only the information necessary to respond to you and improve the website experience.</P>
+        </Section>
+
+        <Section title="How we use your information">
+          <P>We use your data to:</P>
+          <ul style={{ paddingLeft: 18, marginBottom: 14 }}>
+            <Li>Respond to enquiries and schedule demos</Li>
+            <Li>Communicate relevant information about Rik.ai (only if you opt in)</Li>
+            <Li>Improve website performance and usability</Li>
+          </ul>
+          <P>We do not use your data for automated decision-making or profiling.</P>
+        </Section>
+
+        <Section title="Legal basis (India)">
+          <P>We process your data based on:</P>
+          <ul style={{ paddingLeft: 18, marginBottom: 14 }}>
+            <Li>Your consent (when you submit forms or opt in to communication)</Li>
+            <Li>Our legitimate interest in operating and improving our website</Li>
+          </ul>
         </Section>
 
         <Section title="Cookies">
-          <P>We use only essential cookies — the kind required for the website to function. No ad networks. No tracking pixels. No third-party cookies for profiling or retargeting.</P>
-          <P>You can configure your browser to block cookies without losing access to anything on this site.</P>
+          <P>We use only essential cookies required for basic website functionality.</P>
+          <ul style={{ paddingLeft: 18, marginBottom: 14 }}>
+            <Li>No advertising cookies</Li>
+            <Li>No third-party tracking pixels</Li>
+            <Li>No profiling or retargeting</Li>
+          </ul>
+          <P>You can configure your browser to block cookies without affecting your ability to use this website.</P>
         </Section>
 
         <Section title="Third-party services">
-          <P>We use a small set of trusted services to operate this website, including website hosting and email delivery. These services receive only the data necessary to perform their function and maintain their own security standards.</P>
-          <P>We don&apos;t share your data with advertising networks, data brokers, or any third party for commercial purposes.</P>
+          <P>We use a limited number of service providers to operate this website, such as:</P>
+          <ul style={{ paddingLeft: 18, marginBottom: 14 }}>
+            <Li>Hosting and infrastructure providers</Li>
+            <Li>Email delivery services</Li>
+          </ul>
+          <P>These providers process data only as necessary to perform their services and are expected to maintain appropriate security standards.</P>
         </Section>
 
-        <Section title="We don't sell your data">
-          <P>We don&apos;t sell, rent, or trade your personal data. Ever. That&apos;s not part of our business model, and it never will be.</P>
+        <Section title="Data sharing">
+          <P>We do not sell, rent, or trade your personal data.</P>
+          <P>We do not share your data with advertising networks or data brokers.</P>
+        </Section>
+
+        <Section title="International data transfers">
+          <P>Some of our service providers may process data outside India.</P>
+          <P>Where this occurs, we ensure that appropriate safeguards are in place to protect your information.</P>
         </Section>
 
         <Section title="Data retention">
-          <P>We keep contact and enquiry data for up to 2 years, or until you ask us to delete it — whichever comes first. You can request deletion at any time by emailing us.</P>
+          <P>We retain contact and enquiry data:</P>
+          <ul style={{ paddingLeft: 18, marginBottom: 14 }}>
+            <Li>For up to 2 years, or</Li>
+            <Li>Until you request deletion</Li>
+          </ul>
+          <P>— whichever occurs first.</P>
         </Section>
 
         <Section title="Your rights">
-          <P>You can ask us to:</P>
+          <P>You may request to:</P>
           <ul style={{ paddingLeft: 18, marginBottom: 14 }}>
-            <Li><Bold>Access</Bold> — share what personal data we hold about you</Li>
-            <Li><Bold>Correct</Bold> — fix anything that&apos;s inaccurate</Li>
-            <Li><Bold>Delete</Bold> — remove your data from our records</Li>
+            <Li>Access the personal data we hold about you</Li>
+            <Li>Correct inaccurate information</Li>
+            <Li>Delete your data from our records</Li>
           </ul>
           <P>
-            Email us at{' '}
-            <a href="mailto:contact@rikai.tech" style={{ color: 'var(--purple-light)', fontWeight: 600 }}>contact@rikai.tech</a>
-            {' '}and we&apos;ll respond within 30 days.
+            To make a request, contact us at{' '}
+            <a href="mailto:contact@rikai.tech" style={{ color: 'var(--purple-light)', fontWeight: 600 }}>contact@rikai.tech</a>.
+            We aim to respond within 30 days.
           </P>
         </Section>
 
         <Section title="Security">
-          <P>We take reasonable technical measures to protect your data — including encrypted data transmission (TLS) and access controls. No system is perfectly secure, but we treat this seriously.</P>
+          <P>We implement reasonable technical and organisational measures to protect your data, including:</P>
+          <ul style={{ paddingLeft: 18, marginBottom: 14 }}>
+            <Li>Encrypted data transmission (TLS)</Li>
+            <Li>Access controls</Li>
+          </ul>
+          <P>While no system is completely secure, we take data protection seriously.</P>
         </Section>
 
-        <Section title="Updates to this policy">
-          <P>We may update this policy from time to time. The date at the top of this page will always reflect the latest version. Continued use of the website after changes means you accept the updated policy.</P>
+        <Section title="Changes to this policy">
+          <P>We may update this Privacy Policy from time to time.</P>
+          <P>The &quot;Last updated&quot; date reflects the most recent version. Continued use of the website indicates acceptance of any updates.</P>
         </Section>
 
         <Section title="Contact">
-          <P>Questions about this policy or your data? Reach us at:</P>
+          <P>For any questions about this policy or your data:</P>
           <div style={{
             background: 'var(--surface)', border: '1px solid var(--border)',
             borderRadius: 10, padding: '18px 22px',
           }}>
             <p style={{ margin: '0 0 4px', fontSize: 15, color: 'var(--text-1)', fontWeight: 700, fontFamily: 'var(--fh)' }}>Rik Technologies</p>
             <p style={{ margin: 0, fontSize: 14, color: 'var(--text-3)', lineHeight: 1.9 }}>
-              <a href="mailto:contact@rikai.tech" style={{ color: 'var(--purple-light)' }}>contact@rikai.tech</a><br />
+              Email: <a href="mailto:contact@rikai.tech" style={{ color: 'var(--purple-light)' }}>contact@rikai.tech</a><br />
               <a href="https://rikai.tech" style={{ color: 'var(--text-3)' }}>https://rikai.tech</a>
             </p>
           </div>
