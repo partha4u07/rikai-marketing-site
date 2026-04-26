@@ -46,15 +46,7 @@ export default function FooterSection() {
               <span style={{ fontFamily: 'var(--fh)', fontWeight: 700, fontSize: 20 }}>Rik<span className="gt">.ai</span></span>
             </div>
             <p style={{ fontSize: 14, color: 'var(--text-3)', lineHeight: 1.8, maxWidth: 240, marginBottom: 8 }}>Continuous intelligence for teams that need to understand their customers deeply and act on it decisively.</p>
-            <p style={{ fontSize: 12, color: 'rgba(167,139,250,0.4)', marginBottom: 24 }}>The new verse of market intelligence.</p>
-            <div style={{ display: 'flex', gap: 10 }}>
-              {['𝕏', 'in', '◈'].map(s => (
-                <a key={s} href="#" style={{ width: 34, height: 34, borderRadius: 8, border: '1px solid var(--border)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 12, color: 'var(--text-3)', transition: 'all 0.2s' }}
-                  onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(124,58,237,0.4)'; e.currentTarget.style.color = '#c4b5fd'; }}
-                  onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--border)'; e.currentTarget.style.color = 'var(--text-3)'; }}
-                >{s}</a>
-              ))}
-            </div>
+            <p style={{ fontSize: 12, color: 'rgba(167,139,250,0.4)' }}>The new verse of market intelligence.</p>
           </div>
           {cols.map(col => (
             <div key={col.title}>
