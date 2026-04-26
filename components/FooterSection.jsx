@@ -28,6 +28,7 @@ const cols = [
   {
     title: 'Company',
     links: [
+      { label: 'Trust Center', href: '/trust' },
       { label: 'Privacy Policy', href: '/privacy' },
       { label: 'Terms of Service', href: '/terms' },
     ],
