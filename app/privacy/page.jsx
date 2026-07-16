@@ -1,6 +1,6 @@
 export const metadata = {
   title: 'Privacy Policy — Rik.ai',
-  description: 'How Rik Technologies handles data collected through the Rik.ai marketing website.',
+  description: 'How Rik Systems LLP handles data collected through the Rik.ai marketing website.',
 };
 
 const Section = ({ title, children }) => (
@@ -51,14 +51,14 @@ export default function PrivacyPage() {
       }}>
         <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--purple-light)', marginBottom: 12, fontFamily: 'var(--fh)' }}>Legal</p>
         <h1 style={{ fontFamily: 'var(--fh)', fontWeight: 800, fontSize: 38, color: 'var(--text-1)', letterSpacing: '-1px', marginBottom: 12 }}>Privacy Policy</h1>
-        <p style={{ fontSize: 14, color: 'var(--text-3)' }}>Rik Technologies · Last updated: April 2026</p>
+        <p style={{ fontSize: 14, color: 'var(--text-3)' }}>Rik Systems LLP · Last updated: 1 August 2026</p>
       </div>
 
       {/* Content */}
       <div style={{ maxWidth: 720, margin: '0 auto', padding: '56px 24px 96px' }}>
 
         <P>
-          Rik Technologies (&quot;we&quot;, &quot;us&quot;, &quot;our&quot;) operates the Rik.ai marketing website at{' '}
+          Rik Systems LLP (&quot;we&quot;, &quot;us&quot;, &quot;our&quot;) operates the Rik.ai marketing website at{' '}
           <a href="https://rikai.tech" style={{ color: 'var(--purple-light)' }}>https://rikai.tech</a>.
         </P>
         <P>
@@ -79,10 +79,10 @@ export default function PrivacyPage() {
 
         <Section title="Who we are">
           <P>
-            Rik.ai is an AI-powered market research platform built by Rik Technologies, based in India.
+            Rik.ai is an AI-powered market research platform built by Rik Systems LLP, based in India.
           </P>
           <P>
-            For the purposes of applicable data protection laws, Rik Technologies acts as the entity responsible for handling your data collected through this website.
+            For the purposes of applicable data protection laws, Rik Systems LLP acts as the entity responsible for handling your data collected through this website.
           </P>
         </Section>
 
@@ -198,7 +198,7 @@ export default function PrivacyPage() {
             background: 'var(--surface)', border: '1px solid var(--border)',
             borderRadius: 10, padding: '18px 22px',
           }}>
-            <p style={{ margin: '0 0 4px', fontSize: 15, color: 'var(--text-1)', fontWeight: 700, fontFamily: 'var(--fh)' }}>Rik Technologies</p>
+            <p style={{ margin: '0 0 4px', fontSize: 15, color: 'var(--text-1)', fontWeight: 700, fontFamily: 'var(--fh)' }}>Rik Systems LLP</p>
             <p style={{ margin: 0, fontSize: 14, color: 'var(--text-3)', lineHeight: 1.9 }}>
               Email: <a href="mailto:contact@rikai.tech" style={{ color: 'var(--purple-light)' }}>contact@rikai.tech</a><br />
               <a href="https://rikai.tech" style={{ color: 'var(--text-3)' }}>https://rikai.tech</a>
@@ -210,7 +210,7 @@ export default function PrivacyPage() {
 
       {/* Footer */}
       <div style={{ borderTop: '1px solid var(--border)', padding: '24px 48px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <span style={{ fontSize: 13, color: 'var(--text-3)' }}>© 2026 Rik Technologies. All rights reserved.</span>
+        <span style={{ fontSize: 13, color: 'var(--text-3)' }}>© 2026 Rik Systems LLP. All rights reserved.</span>
         <div style={{ display: 'flex', gap: 24 }}>
           <a href="/trust" style={{ fontSize: 13, color: 'var(--text-3)' }}>Trust Center</a>
           <a href="/privacy" style={{ fontSize: 13, color: 'var(--purple-light)' }}>Privacy Policy</a>

@@ -69,7 +69,7 @@ export default function TermsPage() {
       }}>
         <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--purple-light)', marginBottom: 12, fontFamily: 'var(--fh)' }}>Legal</p>
         <h1 style={{ fontFamily: 'var(--fh)', fontWeight: 800, fontSize: 'clamp(28px, 5vw, 38px)', color: 'var(--text-1)', letterSpacing: '-1px', marginBottom: 12 }}>Terms of Service</h1>
-        <p style={{ fontSize: 14, color: 'var(--text-3)' }}>Rik Technologies · Last updated: [Date]</p>
+        <p style={{ fontSize: 14, color: 'var(--text-3)' }}>Rik Systems LLP · Last updated: 1 August 2026</p>
       </div>
 
       {/* Content */}
@@ -79,7 +79,7 @@ export default function TermsPage() {
         <P>
           These Terms of Service (&quot;Terms&quot;) govern your access to and use of the Rik.ai marketing website located at{' '}
           <a href="https://rikai.tech" style={{ color: 'var(--purple-light)' }}>https://rikai.tech</a>{' '}
-          (the &quot;Website&quot;), operated by Rik Technologies, a company incorporated under the laws of India (&quot;Rik.ai&quot;, &quot;we&quot;, &quot;us&quot;, &quot;our&quot;).
+          (the &quot;Website&quot;), operated by Rik Systems LLP, a company incorporated under the laws of India (&quot;Rik.ai&quot;, &quot;we&quot;, &quot;us&quot;, &quot;our&quot;).
         </P>
         <P>
           By accessing, browsing, or using any part of the Website, you (&quot;you&quot;, &quot;your&quot;, &quot;user&quot;) acknowledge that you have read, understood, and agree to be bound by these Terms. If you do not agree to these Terms, you must immediately cease using the Website.
@@ -127,8 +127,8 @@ export default function TermsPage() {
 
         {/* Section 4 */}
         <Section number="4" title="Intellectual Property Rights">
-          <Clause id="4.1">All content, materials, and intellectual property on the Website – including but not limited to text, graphics, logos, icons, images, audio clips, video clips, software, code, designs, layout, data compilations, and the overall &quot;look and feel&quot; – are the exclusive property of Rik Technologies or its licensors and are protected under Indian and international copyright, trademark, and other intellectual property laws.</Clause>
-          <Clause id="4.2">The trademarks, service marks, and logos displayed on the Website, including &quot;Rik.ai&quot;, the Rik.ai logo, and &quot;Rishi&quot;, are registered or unregistered marks of Rik Technologies. Nothing on this Website shall be construed as granting, by implication, estoppel, or otherwise, any licence or right to use any trademark without our prior written permission.</Clause>
+          <Clause id="4.1">All content, materials, and intellectual property on the Website – including but not limited to text, graphics, logos, icons, images, audio clips, video clips, software, code, designs, layout, data compilations, and the overall &quot;look and feel&quot; – are the exclusive property of Rik Systems LLP or its licensors and are protected under Indian and international copyright, trademark, and other intellectual property laws.</Clause>
+          <Clause id="4.2">The trademarks, service marks, and logos displayed on the Website, including &quot;Rik.ai&quot;, the Rik.ai logo, and &quot;Rishi&quot;, are registered or unregistered marks of Rik Systems LLP. Nothing on this Website shall be construed as granting, by implication, estoppel, or otherwise, any licence or right to use any trademark without our prior written permission.</Clause>
           <Clause id="4.3">You may download, print, or share excerpts of Website content for personal, non-commercial, or internal business reference purposes, provided that you do not modify the content and retain all copyright and other proprietary notices.</Clause>
           <Clause id="4.4">You may not:</Clause>
           <SubItem label="(a)">Republish, distribute, or transmit any Website content to any third party for commercial purposes;</SubItem>
@@ -196,7 +196,7 @@ export default function TermsPage() {
 
         {/* Section 9 */}
         <Section number="9" title="Indemnification">
-          <P>You agree to indemnify, defend, and hold harmless Rik Technologies and its officers, directors, employees, agents, and affiliates from and against any and all claims, demands, liabilities, losses, damages, costs, and expenses (including reasonable attorneys&apos; fees) arising out of or relating to:</P>
+          <P>You agree to indemnify, defend, and hold harmless Rik Systems LLP and its officers, directors, employees, agents, and affiliates from and against any and all claims, demands, liabilities, losses, damages, costs, and expenses (including reasonable attorneys&apos; fees) arising out of or relating to:</P>
           <SubItem label="(a)">Your breach of these Terms;</SubItem>
           <SubItem label="(b)">Your violation of any applicable law or regulation;</SubItem>
           <SubItem label="(c)">Your misuse of the Website;</SubItem>
@@ -249,7 +249,7 @@ export default function TermsPage() {
             background: 'var(--surface)', border: '1px solid var(--border)',
             borderRadius: 10, padding: '18px 22px', marginBottom: 12,
           }}>
-            <p style={{ margin: '0 0 4px', fontSize: 15, color: 'var(--text-1)', fontWeight: 700, fontFamily: 'var(--fh)' }}>Rik Technologies</p>
+            <p style={{ margin: '0 0 4px', fontSize: 15, color: 'var(--text-1)', fontWeight: 700, fontFamily: 'var(--fh)' }}>Rik Systems LLP</p>
             <p style={{ margin: 0, fontSize: 14, color: 'var(--text-3)', lineHeight: 1.9 }}>
               Email: <a href="mailto:contact@rikai.tech" style={{ color: 'var(--purple-light)' }}>contact@rikai.tech</a><br />
               Website: <a href="https://rikai.tech" style={{ color: 'var(--text-3)' }}>https://rikai.tech</a>
@@ -267,7 +267,7 @@ export default function TermsPage() {
         display: 'flex', flexWrap: 'wrap', gap: 12,
         justifyContent: 'space-between', alignItems: 'center',
       }}>
-        <span style={{ fontSize: 13, color: 'var(--text-3)' }}>© 2026 Rik Technologies. All rights reserved.</span>
+        <span style={{ fontSize: 13, color: 'var(--text-3)' }}>© 2026 Rik Systems LLP. All rights reserved.</span>
         <div style={{ display: 'flex', gap: 24, flexWrap: 'wrap' }}>
           <a href="/trust" style={{ fontSize: 13, color: 'var(--text-3)' }}>Trust Center</a>
           <a href="/privacy" style={{ fontSize: 13, color: 'var(--text-3)' }}>Privacy Policy</a>
