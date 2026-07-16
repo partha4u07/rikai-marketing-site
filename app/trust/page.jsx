@@ -93,7 +93,7 @@ export default function TrustPage() {
       }}>
         <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--purple-light)', marginBottom: 12, fontFamily: 'var(--fh)' }}>Legal</p>
         <h1 style={{ fontFamily: 'var(--fh)', fontWeight: 800, fontSize: 'clamp(28px, 5vw, 38px)', color: 'var(--text-1)', letterSpacing: '-1px', marginBottom: 12 }}>Trust Center</h1>
-        <p style={{ fontSize: 14, color: 'var(--text-3)', marginBottom: 4 }}>Rik Technologies · Last Updated: [Date] · Last Reviewed: [Date] · Version 1.0</p>
+        <p style={{ fontSize: 14, color: 'var(--text-3)' }}>Rik Systems LLP · Last updated: 1 August 2026</p>
       </div>
 
       {/* Content */}
@@ -171,10 +171,10 @@ export default function TrustPage() {
                   </tr>
                 </thead>
                 <tbody>
-                  <TableRow cols={['Marketing Website (rikai.tech)', 'Rik Technologies', 'Resend (email), HubSpot (CRM)']} />
-                  <TableRow cols={['Customer Portal (customer.rikai.tech) – Portal User data', 'Rik Technologies', 'Neon (database), Resend (email)']} />
-                  <TableRow cols={['Customer Portal – Customer Data (Survey configurations, etc.)', 'Customer (the business customer)', 'Rik Technologies (as Service Provider)']} />
-                  <TableRow cols={['Participant Portal (survey.rikai.tech) – Participant Data', 'Rik Technologies', 'Google Cloud Platform, Anthropic, ElevenLabs, Resend, Neon, MSG91']} />
+                  <TableRow cols={['Marketing Website (rikai.tech)', 'Rik Systems LLP', 'Resend (email), HubSpot (CRM)']} />
+                  <TableRow cols={['Customer Portal (customer.rikai.tech) – Portal User data', 'Rik Systems LLP', 'Neon (database), Resend (email)']} />
+                  <TableRow cols={['Customer Portal – Customer Data (Survey configurations, etc.)', 'Customer (the business customer)', 'Rik Systems LLP (as Service Provider)']} />
+                  <TableRow cols={['Participant Portal (survey.rikai.tech) – Participant Data', 'Rik Systems LLP', 'Google Cloud Platform, Anthropic, ElevenLabs, Resend, Neon, MSG91']} />
                 </tbody>
               </table>
             </div>
@@ -341,7 +341,7 @@ export default function TrustPage() {
             background: 'var(--surface)', border: '1px solid var(--border)',
             borderRadius: 10, padding: '18px 22px',
           }}>
-            <p style={{ margin: '0 0 4px', fontSize: 15, color: 'var(--text-1)', fontWeight: 700, fontFamily: 'var(--fh)' }}>Rik Technologies</p>
+            <p style={{ margin: '0 0 4px', fontSize: 15, color: 'var(--text-1)', fontWeight: 700, fontFamily: 'var(--fh)' }}>Rik Systems LLP</p>
             <p style={{ margin: 0, fontSize: 14, color: 'var(--text-3)', lineHeight: 1.9 }}>
               Email: <a href="mailto:privacy@rikai.tech" style={{ color: 'var(--purple-light)' }}>privacy@rikai.tech</a><br />
               Website: <a href="https://rikai.tech" style={{ color: 'var(--text-3)' }}>https://rikai.tech</a>
@@ -359,7 +359,7 @@ export default function TrustPage() {
         display: 'flex', flexWrap: 'wrap', gap: 12,
         justifyContent: 'space-between', alignItems: 'center',
       }}>
-        <span style={{ fontSize: 13, color: 'var(--text-3)' }}>© 2026 Rik Technologies. All rights reserved.</span>
+        <span style={{ fontSize: 13, color: 'var(--text-3)' }}>© 2026 Rik Systems LLP. All rights reserved.</span>
         <div style={{ display: 'flex', gap: 24, flexWrap: 'wrap' }}>
           <a href="/trust" style={{ fontSize: 13, color: 'var(--purple-light)' }}>Trust Center</a>
           <a href="/privacy" style={{ fontSize: 13, color: 'var(--text-3)' }}>Privacy Policy</a>
