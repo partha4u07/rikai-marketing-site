@@ -6,67 +6,6 @@ const heroVariants = {
   C: { h1a: 'Go beyond collecting data.', h1b: 'Understand what customers', h1c: 'are really telling you.' },
 };
 
-function DashboardMockup() {
-  const surveys = [
-    { name: 'NPS Survey — Q2 2026', status: 'Active', pct: 68, color: '#22c55e' },
-    { name: 'Product Feedback v3', status: 'Collecting', pct: 34, color: '#818cf8' },
-    { name: 'Exit Survey — Churned Users', status: 'Draft', pct: 0, color: 'rgba(240,240,255,0.3)' },
-  ];
-  return (
-    <div style={{ background: '#0c0c1e', borderRadius: 18, border: '1px solid rgba(255,255,255,0.1)', overflow: 'hidden', boxShadow: '0 40px 100px rgba(0,0,0,0.7), 0 0 80px rgba(124,58,237,0.18)', width: '100%', maxWidth: 520 }}>
-      <div style={{ padding: '12px 20px', borderBottom: '1px solid rgba(255,255,255,0.07)', display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: 'rgba(255,255,255,0.02)' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-          <img src="/uploads/logo_upload-1776774656314.png" style={{ height: 22 }} alt="" />
-          <span style={{ fontFamily: 'var(--fh)', fontWeight: 700, fontSize: 13 }}>Rik.ai</span>
-          <span style={{ fontSize: 9, color: 'rgba(240,240,255,0.35)', letterSpacing: '0.08em' }}>CUSTOMER PORTAL</span>
-        </div>
-        <div style={{ display: 'flex', gap: 8 }}>
-          {['Support', 'Sign out'].map(t => <div key={t} style={{ padding: '4px 10px', background: 'rgba(255,255,255,0.06)', borderRadius: 6, fontSize: 10, color: 'rgba(240,240,255,0.55)' }}>{t}</div>)}
-        </div>
-      </div>
-      <div style={{ padding: '22px 24px' }}>
-        <div style={{ fontFamily: 'var(--fh)', fontSize: 19, fontWeight: 700, marginBottom: 4 }}>Good morning, Harry</div>
-        <div style={{ fontSize: 12, color: 'rgba(240,240,255,0.45)', marginBottom: 18 }}>14 active · 6 completions</div>
-        <div style={{ padding: '10px 14px', background: 'rgba(239,68,68,0.09)', border: '1px solid rgba(239,68,68,0.18)', borderLeft: '3px solid #ef4444', borderRadius: 9, marginBottom: 18, fontSize: 11, color: '#fca5a5' }}>
-          ⚠ "Brand Study" stalled — no new responses in 72 hours
-        </div>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10, marginBottom: 18 }}>
-          {['Q2 Brand Research', 'UX Satisfaction Study'].map((p, i) => (
-            <div key={i} style={{ padding: '12px 14px', background: 'rgba(255,255,255,0.04)', borderRadius: 10, border: '1px solid rgba(255,255,255,0.07)' }}>
-              <div style={{ fontSize: 11, fontWeight: 600, marginBottom: 6 }}>{p}</div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
-                <div style={{ width: 6, height: 6, borderRadius: '50%', background: '#22c55e', animation: 'pulse 2s infinite' }} />
-                <span style={{ fontSize: 10, color: '#4ade80' }}>Active</span>
-              </div>
-            </div>
-          ))}
-        </div>
-        {surveys.map((s, i) => (
-          <div key={i} style={{ padding: '11px 14px', marginBottom: 7, background: 'rgba(255,255,255,0.03)', borderRadius: 9, border: '1px solid rgba(255,255,255,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-            <div>
-              <div style={{ fontSize: 11, fontWeight: 500, marginBottom: 5 }}>{s.name}</div>
-              <span style={{ fontSize: 9, padding: '2px 7px', background: `${s.color}18`, borderRadius: 4, color: s.color, fontWeight: 600 }}>{s.status}</span>
-            </div>
-            <div style={{ textAlign: 'right' }}>
-              <div style={{ fontSize: 18, fontWeight: 700, color: s.pct > 0 ? '#818cf8' : 'rgba(240,240,255,0.25)', fontFamily: 'var(--fh)' }}>{s.pct}%</div>
-              <div style={{ fontSize: 9, color: 'rgba(240,240,255,0.3)' }}>completion</div>
-            </div>
-          </div>
-        ))}
-        <div style={{ marginTop: 14, padding: '10px 14px', background: 'linear-gradient(135deg, rgba(124,58,237,0.15), rgba(79,110,247,0.1))', borderRadius: 10, border: '1px solid rgba(124,58,237,0.25)', display: 'flex', alignItems: 'center', gap: 10 }}>
-          <div style={{ width: 28, height: 28, borderRadius: 8, background: 'var(--grad)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="white" strokeWidth="2" strokeLinecap="round" /></svg>
-          </div>
-          <div>
-            <div style={{ fontSize: 10, fontWeight: 700, color: '#c4b5fd', marginBottom: 2 }}>Rishi AI · Insight Ready</div>
-            <div style={{ fontSize: 10, color: 'rgba(240,240,255,0.5)' }}>3 themes detected · Action recommended</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
 export function CredibilityStrip() {
   const items = [
     { icon: '◈', text: 'From customer signals to confident decisions — in minutes, not weeks' },
@@ -144,7 +83,8 @@ export default function HeroSection({ onBookDemo }) {
             </div>
           </div>
           <div className="hero-mockup" style={{ display: 'flex', justifyContent: 'center', animation: 'float 8s ease-in-out infinite' }}>
-            <DashboardMockup />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/uploads/rikai-hero-mockup.webp" alt="Rik.ai customer portal" style={{ width: '100%', maxWidth: 520, height: 'auto', display: 'block' }} />
           </div>
         </div>
       </section>
