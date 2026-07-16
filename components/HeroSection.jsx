@@ -84,7 +84,7 @@ export default function HeroSection({ onBookDemo }) {
           </div>
           <div className="hero-mockup" style={{ display: 'flex', justifyContent: 'center', animation: 'float 8s ease-in-out infinite' }}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/uploads/rikai-hero-mockup.webp" alt="Rik.ai customer portal" style={{ width: '100%', maxWidth: 520, height: 'auto', display: 'block' }} />
+            <img src="/uploads/rikai-hero-mockup.png" alt="Rik.ai customer portal" style={{ width: '100%', maxWidth: 520, height: 'auto', display: 'block' }} />
           </div>
         </div>
       </section>
