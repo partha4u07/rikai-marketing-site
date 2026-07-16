@@ -5,14 +5,16 @@ import SLabel from './SLabel';
 const tabs = [
   {
     label: 'Customer Portal',
-    img: '/uploads/rikai-customerportal.JPG',
+    img: '/uploads/rikai-customerportal.webp',
+    url: 'customer.rikai.tech',
     headline: 'Every study. Every signal. One command centre.',
     caption: 'Monitor completion rates, receive real-time alerts, and see AI-generated insights the moment responses arrive — without digging through data or waiting for a report.',
     why: 'Why this matters: your team stays one step ahead of every study, every time.',
   },
   {
     label: 'Voice Portal',
-    img: '/uploads/rikai-surveyportal.JPG',
+    img: '/uploads/rikai-surveyportal.webp',
+    url: 'survey.rikai.tech',
     headline: 'An experience respondents actually want to come back to.',
     caption: 'Purpose-built for participants — not just researchers. Seamless navigation, pending study queues, and incentive management designed to maximize completion and response quality.',
     why: 'Why this matters: higher completion rates mean more reliable, representative data.',
@@ -46,7 +48,7 @@ export default function ProductPreviewSection() {
             <div style={{ display: 'flex', gap: 7 }}>
               {['#ef4444', '#f59e0b', '#22c55e'].map(c => <div key={c} style={{ width: 12, height: 12, borderRadius: '50%', background: c }} />)}
             </div>
-            <div style={{ flex: 1, background: 'rgba(255,255,255,0.05)', borderRadius: 7, padding: '5px 14px', fontSize: 11, color: 'var(--text-3)', textAlign: 'center' }}>app.rik.ai</div>
+            <div style={{ flex: 1, background: 'rgba(255,255,255,0.05)', borderRadius: 7, padding: '5px 14px', fontSize: 11, color: 'var(--text-3)', textAlign: 'center' }}>{t.url}</div>
           </div>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={t.img} alt={t.label} style={{ width: '100%', display: 'block', maxHeight: 560, objectFit: 'cover', objectPosition: 'top center' }} />
