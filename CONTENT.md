@@ -318,6 +318,6 @@ Rik AI makes sure you hear it.
 - Resources: Help Centre · Contact (sales@rikai.tech)
 - Company: Trust Center · Privacy Policy · Terms of Service
 
-**Copyright:** © 2026 Rik Technologies. All rights reserved.
+**Copyright:** © 2026 Rik Systems LLP. All rights reserved.
 
 **Footer tagline:** Inspired by knowledge. Built for clarity.
